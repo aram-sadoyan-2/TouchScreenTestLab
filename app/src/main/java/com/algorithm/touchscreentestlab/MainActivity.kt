@@ -12,6 +12,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.algorithm.touchscreentestlab.ui.theme.TouchScreenTestLabTheme
+import com.example.touchlab.ui.TouchLabHomeScreen
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -20,9 +21,11 @@ class MainActivity : ComponentActivity() {
         setContent {
             TouchScreenTestLabTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
+                    TouchLabHomeScreen(
+                        onQuickTestClick = {},
+                        onDrawTestClick = {},
+                        onMultiTouchClick = {},
+                        onEdgeTestClick = {},
                     )
                 }
             }
