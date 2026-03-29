@@ -1,5 +1,4 @@
 @file:Suppress("FunctionName")
-
 package com.example.touchlab.ui
 
 import androidx.compose.foundation.Canvas
@@ -12,7 +11,6 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -46,34 +44,13 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.rotate
 import androidx.compose.ui.geometry.Offset
-import androidx.compose.ui.graphics.BlendMode
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.Shadow
-import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-
-import androidx.compose.foundation.Canvas
-import androidx.compose.foundation.background
-import androidx.compose.foundation.border
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.material3.Text
-import androidx.compose.ui.draw.clip
-import androidx.compose.ui.draw.rotate
-import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
+import androidx.compose.ui.graphics.graphicsLayer
 
 private val ScreenBgTop = Color(0xFF060B22)
 private val ScreenBgMiddle = Color(0xFF091532)
@@ -332,14 +309,14 @@ private fun HeroCard() {
     Box(
         modifier = Modifier
             .fillMaxWidth()
-            .height(370.dp)
+            .height(360.dp)
             .clip(RoundedCornerShape(38.dp))
             .background(
                 brush = Brush.horizontalGradient(
                     colors = listOf(
-                        Color(0xFF184A8F),
+                        Color(0xFF18488C),
                         Color(0xFF315CB5),
-                        Color(0xFF5A4FAE)
+                        Color(0xFF5C4EAF)
                     )
                 )
             )
@@ -348,7 +325,7 @@ private fun HeroCard() {
                 brush = Brush.horizontalGradient(
                     colors = listOf(
                         Color(0xFF67D8FF).copy(alpha = 0.55f),
-                        Color(0xFF7C7CFF).copy(alpha = 0.28f),
+                        Color(0xFF7C7CFF).copy(alpha = 0.24f),
                         Color(0xFFFF87F2).copy(alpha = 0.35f)
                     )
                 ),
@@ -360,7 +337,7 @@ private fun HeroCard() {
         Box(
             modifier = Modifier
                 .align(Alignment.TopCenter)
-                .padding(top = 26.dp)
+                .padding(top = 18.dp)
         ) {
             HeroPhonePreviewCompact()
         }
@@ -369,11 +346,12 @@ private fun HeroCard() {
             modifier = Modifier
                 .align(Alignment.BottomCenter)
                 .fillMaxWidth()
-                .height(138.dp)
+                .height(146.dp)
+                .offset(y = 4.dp)
                 .clip(
                     RoundedCornerShape(
-                        topStart = 44.dp,
-                        topEnd = 44.dp,
+                        topStart = 50.dp,
+                        topEnd = 50.dp,
                         bottomStart = 0.dp,
                         bottomEnd = 0.dp
                     )
@@ -381,10 +359,24 @@ private fun HeroCard() {
                 .background(
                     brush = Brush.verticalGradient(
                         colors = listOf(
-                            Color(0xFF173468),
-                            Color(0xFF112B5A),
+                            Color(0xFF17356C),
+                            Color(0xFF112B5B),
                             Color(0xFF0D234C)
                         )
+                    )
+                )
+                .border(
+                    width = 1.dp,
+                    brush = Brush.horizontalGradient(
+                        colors = listOf(
+                            Color(0xFF65D8FF).copy(alpha = 0.12f),
+                            Color.White.copy(alpha = 0.04f),
+                            Color(0xFFFF8AF2).copy(alpha = 0.10f)
+                        )
+                    ),
+                    shape = RoundedCornerShape(
+                        topStart = 50.dp,
+                        topEnd = 50.dp
                     )
                 )
         ) {
@@ -395,21 +387,21 @@ private fun HeroCard() {
                 verticalArrangement = Arrangement.Center
             ) {
                 Text(
-                    text = "Test your screen in seconds",
+                    text = "Test your screen in\nseconds",
                     color = Color.White,
-                    fontSize = 24.sp,
+                    fontSize = 25.sp,
                     fontWeight = FontWeight.ExtraBold,
-                    lineHeight = 28.sp
+                    lineHeight = 30.sp
                 )
 
                 Spacer(modifier = Modifier.height(14.dp))
 
                 Text(
-                    text = "Check dead zones, multi-touch, and touch\naccuracy",
+                    text = "Check dead zones, multi-touch, and touch",
                     color = Color(0xFFAED6FF),
-                    fontSize = 14.sp,
+                    fontSize = 13.sp,
                     fontWeight = FontWeight.Medium,
-                    lineHeight = 20.sp
+                    lineHeight = 18.sp
                 )
             }
         }
@@ -422,7 +414,7 @@ private fun HeroSimpleBackground() {
         Box(
             modifier = Modifier
                 .align(Alignment.TopStart)
-                .padding(start = 58.dp, top = 92.dp)
+                .padding(start = 58.dp, top = 100.dp)
                 .size(8.dp)
                 .clip(CircleShape)
                 .background(Color(0xFFB6E5FF).copy(alpha = 0.75f))
@@ -431,7 +423,7 @@ private fun HeroSimpleBackground() {
         Box(
             modifier = Modifier
                 .align(Alignment.CenterEnd)
-                .padding(end = 94.dp, bottom = 62.dp)
+                .padding(end = 104.dp, bottom = 54.dp)
                 .size(10.dp)
                 .clip(CircleShape)
                 .background(Color(0xFFA8DFFF).copy(alpha = 0.72f))
@@ -440,7 +432,7 @@ private fun HeroSimpleBackground() {
         Box(
             modifier = Modifier
                 .align(Alignment.TopEnd)
-                .padding(end = 48.dp, top = 120.dp)
+                .padding(end = 54.dp, top = 126.dp)
                 .size(width = 54.dp, height = 16.dp)
                 .rotate(-40f)
                 .clip(RoundedCornerShape(20.dp))
@@ -458,7 +450,7 @@ private fun HeroSimpleBackground() {
         Box(
             modifier = Modifier
                 .align(Alignment.CenterEnd)
-                .padding(end = 62.dp, top = 4.dp)
+                .padding(end = 74.dp, top = 4.dp)
                 .size(7.dp)
                 .clip(CircleShape)
                 .background(Color(0xFFB2DEFF).copy(alpha = 0.75f))
@@ -470,100 +462,143 @@ private fun HeroSimpleBackground() {
 private fun HeroPhonePreviewCompact() {
     Box(
         modifier = Modifier
-            .width(188.dp)
-            .height(235.dp)
+            .width(196.dp)
+            .height(248.dp)
+            .graphicsLayer {
+                rotationX = 20f
+                rotationZ = 0f
+                cameraDistance = 8 * density
+            }
     ) {
         Box(
             modifier = Modifier
                 .matchParentSize()
-                .clip(RoundedCornerShape(34.dp))
-                .background(Color(0xFF050D1F))
-                .border(
-                    width = 2.dp,
-                    brush = Brush.verticalGradient(
-                        colors = listOf(
-                            Color(0xFF39DEFF).copy(alpha = 0.90f),
-                            Color(0xFF225DCC).copy(alpha = 0.35f),
-                            Color(0xFFFF4FDF).copy(alpha = 0.55f)
-                        )
-                    ),
-                    shape = RoundedCornerShape(34.dp)
-                )
-                .padding(horizontal = 8.dp, vertical = 8.dp)
+
         ) {
+            // left side buttons
             Box(
                 modifier = Modifier
-                    .fillMaxSize()
-                    .clip(RoundedCornerShape(26.dp))
-                    .background(
+                    .align(Alignment.CenterStart)
+                    .offset(x = (-3).dp, y = (-34).dp)
+                    .width(4.dp)
+                    .height(30.dp)
+                    .clip(RoundedCornerShape(10.dp))
+                    .background(Color(0xFF162042))
+            )
+
+            Box(
+                modifier = Modifier
+                    .align(Alignment.CenterStart)
+                    .offset(x = (-3).dp, y = 2.dp)
+                    .width(4.dp)
+                    .height(38.dp)
+                    .clip(RoundedCornerShape(10.dp))
+                    .background(Color(0xFF162042))
+            )
+
+            // right side button
+            Box(
+                modifier = Modifier
+                    .align(Alignment.CenterEnd)
+                    .offset(x = 3.dp, y = (-10).dp)
+                    .width(4.dp)
+                    .height(44.dp)
+                    .clip(RoundedCornerShape(10.dp))
+                    .background(Color(0xFF162042))
+            )
+
+            Box(
+                modifier = Modifier
+                    .matchParentSize()
+                    .clip(RoundedCornerShape(34.dp))
+                    .background(Color(0xFF050D1F))
+                    .border(
+                        width = 2.dp,
                         brush = Brush.verticalGradient(
                             colors = listOf(
-                                Color(0xFF061428),
-                                Color(0xFF0A1D38),
-                                Color(0xFF07162D)
+                                Color(0xFF39DEFF).copy(alpha = 0.92f),
+                                Color(0xFF225DCC).copy(alpha = 0.35f),
+                                Color(0xFFFF4FDF).copy(alpha = 0.55f)
                             )
-                        )
+                        ),
+                        shape = RoundedCornerShape(34.dp)
                     )
+                    .padding(horizontal = 8.dp, vertical = 8.dp)
             ) {
-                HeroPhoneGridCompact()
-
                 Box(
                     modifier = Modifier
-                        .align(Alignment.TopCenter)
-                        .padding(top = 10.dp)
-                        .width(46.dp)
-                        .height(7.dp)
-                        .clip(RoundedCornerShape(30.dp))
-                        .background(Color(0xFF23324D))
-                )
+                        .fillMaxSize()
+                        .clip(RoundedCornerShape(26.dp))
+                        .background(
+                            brush = Brush.verticalGradient(
+                                colors = listOf(
+                                    Color(0xFF061428),
+                                    Color(0xFF0A1D38),
+                                    Color(0xFF07162D)
+                                )
+                            )
+                        )
+                ) {
+                    HeroPhoneGridCompact()
 
-                HeroTouchPointCompact(
-                    modifier = Modifier
-                        .align(Alignment.TopEnd)
-                        .padding(top = 24.dp, end = 16.dp),
-                    outer = 32.dp,
-                    inner = 17.dp
-                )
+                    Box(
+                        modifier = Modifier
+                            .align(Alignment.TopCenter)
+                            .padding(top = 10.dp)
+                            .width(46.dp)
+                            .height(7.dp)
+                            .clip(RoundedCornerShape(30.dp))
+                            .background(Color(0xFF23324D))
+                    )
 
-                HeroTouchPointCompact(
-                    modifier = Modifier
-                        .align(Alignment.CenterStart)
-                        .padding(start = 20.dp, bottom = 26.dp),
-                    outer = 46.dp,
-                    inner = 23.dp
-                )
+                    HeroTouchPointCompact(
+                        modifier = Modifier
+                            .align(Alignment.TopEnd)
+                            .padding(top = 24.dp, end = 16.dp),
+                        outer = 32.dp,
+                        inner = 17.dp
+                    )
 
-                HeroTouchPointCompact(
-                    modifier = Modifier
-                        .align(Alignment.Center)
-                        .padding(top = 10.dp, start = 4.dp),
-                    outer = 34.dp,
-                    inner = 17.dp
-                )
+                    HeroTouchPointCompact(
+                        modifier = Modifier
+                            .align(Alignment.CenterStart)
+                            .padding(start = 20.dp, bottom = 26.dp),
+                        outer = 46.dp,
+                        inner = 23.dp
+                    )
 
-                HeroTouchPointCompact(
-                    modifier = Modifier
-                        .align(Alignment.CenterEnd)
-                        .padding(end = 20.dp, top = 2.dp),
-                    outer = 56.dp,
-                    inner = 28.dp
-                )
+                    HeroTouchPointCompact(
+                        modifier = Modifier
+                            .align(Alignment.Center)
+                            .padding(top = 10.dp, start = 4.dp),
+                        outer = 34.dp,
+                        inner = 17.dp
+                    )
 
-                HeroTouchPointCompact(
-                    modifier = Modifier
-                        .align(Alignment.BottomCenter)
-                        .padding(bottom = 30.dp, start = 2.dp),
-                    outer = 40.dp,
-                    inner = 20.dp
-                )
+                    HeroTouchPointCompact(
+                        modifier = Modifier
+                            .align(Alignment.CenterEnd)
+                            .padding(end = 20.dp, top = 2.dp),
+                        outer = 56.dp,
+                        inner = 28.dp
+                    )
 
-                HeroTouchPointCompact(
-                    modifier = Modifier
-                        .align(Alignment.BottomStart)
-                        .padding(start = 20.dp, bottom = 10.dp),
-                    outer = 32.dp,
-                    inner = 16.dp
-                )
+                    HeroTouchPointCompact(
+                        modifier = Modifier
+                            .align(Alignment.BottomCenter)
+                            .padding(bottom = 30.dp, start = 2.dp),
+                        outer = 40.dp,
+                        inner = 20.dp
+                    )
+
+                    HeroTouchPointCompact(
+                        modifier = Modifier
+                            .align(Alignment.BottomStart)
+                            .padding(start = 20.dp, bottom = 10.dp),
+                        outer = 32.dp,
+                        inner = 16.dp
+                    )
+                }
             }
         }
     }
@@ -611,14 +646,14 @@ private fun HeroTouchPointCompact(
         modifier = modifier
             .size(outer)
             .clip(CircleShape)
-            .background(Color(0xFF42E6FF).copy(alpha = 0.16f)),
+            .background(Color(0xFF42E6FF).copy(alpha = 0.12f)),
         contentAlignment = Alignment.Center
     ) {
         Box(
             modifier = Modifier
-                .size(outer * 0.7f)
+                .size(outer * 0.72f)
                 .clip(CircleShape)
-                .background(Color(0xFF42E6FF).copy(alpha = 0.22f)),
+                .background(Color(0xFF42E6FF).copy(alpha = 0.18f)),
             contentAlignment = Alignment.Center
         ) {
             Box(
@@ -630,82 +665,7 @@ private fun HeroTouchPointCompact(
         }
     }
 }
-@Composable
-private fun HeroBackgroundDecor() {
-    Box(modifier = Modifier.fillMaxSize()) {
-        Box(
-            modifier = Modifier
-                .align(Alignment.TopStart)
-                .padding(start = 34.dp, top = 54.dp)
-                .size(90.dp)
-                .background(
-                    brush = Brush.radialGradient(
-                        colors = listOf(
-                            Color(0xFF59D8FF).copy(alpha = 0.12f),
-                            Color.Transparent
-                        )
-                    ),
-                    shape = CircleShape
-                )
-        )
 
-        Box(
-            modifier = Modifier
-                .align(Alignment.TopEnd)
-                .padding(end = 24.dp, top = 42.dp)
-                .size(110.dp)
-                .background(
-                    brush = Brush.radialGradient(
-                        colors = listOf(
-                            Color(0xFFFF82F1).copy(alpha = 0.10f),
-                            Color.Transparent
-                        )
-                    ),
-                    shape = CircleShape
-                )
-        )
-
-        HeroParticle(
-            modifier = Modifier
-                .align(Alignment.TopStart)
-                .padding(start = 58.dp, top = 88.dp),
-            size = 6.dp
-        )
-
-        HeroParticle(
-            modifier = Modifier
-                .align(Alignment.TopEnd)
-                .padding(end = 74.dp, top = 76.dp),
-            size = 8.dp
-        )
-
-        HeroParticle(
-            modifier = Modifier
-                .align(Alignment.TopEnd)
-                .padding(end = 44.dp, top = 110.dp),
-            size = 5.dp
-        )
-
-        HeroParticle(
-            modifier = Modifier
-                .align(Alignment.CenterEnd)
-                .padding(end = 52.dp),
-            size = 7.dp
-        )
-
-        HeroComet(
-            modifier = Modifier
-                .align(Alignment.TopStart)
-                .padding(start = 78.dp, top = 66.dp)
-        )
-
-        HeroComet(
-            modifier = Modifier
-                .align(Alignment.TopEnd)
-                .padding(end = 60.dp, top = 92.dp)
-        )
-    }
-}
 
 @Composable
 private fun HeroParticle(
@@ -720,327 +680,6 @@ private fun HeroParticle(
     )
 }
 
-@Composable
-private fun HeroComet(
-    modifier: Modifier
-) {
-    Box(
-        modifier = modifier
-            .size(width = 42.dp, height = 12.dp)
-            .rotate(-38f)
-            .background(
-                brush = Brush.horizontalGradient(
-                    colors = listOf(
-                        Color.Transparent,
-                        Color(0xFF88E4FF).copy(alpha = 0.12f),
-                        Color(0xFF88E4FF).copy(alpha = 0.55f)
-                    )
-                ),
-                shape = RoundedCornerShape(20.dp)
-            )
-    )
-}
-
-@Composable
-private fun HeroPhonePreview() {
-    Box(
-        modifier = Modifier
-            .width(175.dp)
-            .height(215.dp)
-    ) {
-        Box(
-            modifier = Modifier
-                .matchParentSize()
-                .clip(RoundedCornerShape(34.dp))
-                .background(Color(0xFF050B1F))
-                .border(
-                    width = 2.dp,
-                    brush = Brush.verticalGradient(
-                        colors = listOf(
-                            Color(0xFF3DE0FF).copy(alpha = 0.85f),
-                            Color(0xFF2F67FF).copy(alpha = 0.35f),
-                            Color(0xFFFF5DE9).copy(alpha = 0.55f)
-                        )
-                    ),
-                    shape = RoundedCornerShape(34.dp)
-                )
-                .padding(horizontal = 7.dp, vertical = 8.dp)
-        ) {
-            Box(
-                modifier = Modifier
-                    .fillMaxSize()
-                    .clip(RoundedCornerShape(26.dp))
-                    .background(
-                        brush = Brush.verticalGradient(
-                            colors = listOf(
-                                Color(0xFF07152A),
-                                Color(0xFF0A1E3C),
-                                Color(0xFF08172F)
-                            )
-                        )
-                    )
-            ) {
-                HeroPhoneGrid()
-
-                Box(
-                    modifier = Modifier
-                        .align(Alignment.TopCenter)
-                        .padding(top = 9.dp)
-                        .width(42.dp)
-                        .height(6.dp)
-                        .clip(RoundedCornerShape(20.dp))
-                        .background(Color(0xFF1C2A46))
-                )
-
-                HeroTouchPoint(
-                    modifier = Modifier
-                        .align(Alignment.TopEnd)
-                        .padding(top = 22.dp, end = 16.dp),
-                    outer = 28.dp,
-                    inner = 15.dp
-                )
-
-                HeroTouchPoint(
-                    modifier = Modifier
-                        .align(Alignment.TopStart)
-                        .padding(top = 50.dp, start = 18.dp),
-                    outer = 42.dp,
-                    inner = 22.dp
-                )
-
-                HeroTouchPoint(
-                    modifier = Modifier
-                        .align(Alignment.CenterEnd)
-                        .padding(end = 20.dp, bottom = 12.dp),
-                    outer = 50.dp,
-                    inner = 26.dp
-                )
-
-                HeroTouchPoint(
-                    modifier = Modifier
-                        .align(Alignment.Center)
-                        .padding(top = 8.dp, end = 10.dp),
-                    outer = 34.dp,
-                    inner = 18.dp
-                )
-
-                HeroTouchPoint(
-                    modifier = Modifier
-                        .align(Alignment.BottomCenter)
-                        .padding(bottom = 28.dp, end = 18.dp),
-                    outer = 36.dp,
-                    inner = 19.dp
-                )
-
-                HeroTouchPoint(
-                    modifier = Modifier
-                        .align(Alignment.BottomStart)
-                        .padding(start = 24.dp, bottom = 10.dp),
-                    outer = 30.dp,
-                    inner = 15.dp
-                )
-            }
-        }
-    }
-}
-
-@Composable
-private fun HeroPhoneGrid() {
-    Canvas(
-        modifier = Modifier
-            .fillMaxSize()
-            .padding(horizontal = 14.dp, vertical = 16.dp)
-    ) {
-        val cols = 7
-        val rows = 9
-        val dx = size.width / cols
-        val dy = size.height / rows
-
-        for (i in 0..cols) {
-            drawLine(
-                color = Color(0xFF67D8FF).copy(alpha = 0.42f),
-                start = Offset(i * dx, 0f),
-                end = Offset(i * dx, size.height),
-                strokeWidth = 1.2.dp.toPx()
-            )
-        }
-
-        for (j in 0..rows) {
-            drawLine(
-                color = Color(0xFF67D8FF).copy(alpha = 0.42f),
-                start = Offset(0f, j * dy),
-                end = Offset(size.width, j * dy),
-                strokeWidth = 1.2.dp.toPx()
-            )
-        }
-    }
-}
-
-@Composable
-private fun HeroTouchPoint(
-    modifier: Modifier,
-    outer: Dp,
-    inner: Dp
-) {
-    Box(
-        modifier = modifier
-            .size(outer)
-            .clip(CircleShape)
-            .background(Color(0xFF3DE5FF).copy(alpha = 0.20f)),
-        contentAlignment = Alignment.Center
-    ) {
-        Box(
-            modifier = Modifier
-                .size(outer * 0.72f)
-                .clip(CircleShape)
-                .background(Color(0xFF3DE5FF).copy(alpha = 0.26f)),
-            contentAlignment = Alignment.Center
-        ) {
-            Box(
-                modifier = Modifier
-                    .size(inner)
-                    .clip(CircleShape)
-                    .background(Color(0xFF47E7FF))
-            )
-        }
-    }
-}
-
-@Composable
-private fun PhonePreview() {
-    Box(
-        modifier = Modifier
-            .fillMaxWidth()
-            .height(250.dp),
-        contentAlignment = Alignment.Center
-    ) {
-        Box(
-            modifier = Modifier
-                .width(150.dp)
-                .aspectRatio(0.55f)
-                .clip(RoundedCornerShape(28.dp))
-                .background(Color(0xFF071122))
-                .padding(8.dp)
-        ) {
-            Box(
-                modifier = Modifier
-                    .fillMaxSize()
-                    .clip(RoundedCornerShape(22.dp))
-                    .background(
-                        brush = Brush.verticalGradient(
-                            colors = listOf(
-                                Color(0xFF0A1930),
-                                Color(0xFF0E2546),
-                                Color(0xFF08172F)
-                            )
-                        )
-                    )
-            ) {
-                ScreenGrid()
-
-                TouchPoint(
-                    modifier = Modifier
-                        .align(Alignment.TopEnd)
-                        .padding(top = 30.dp, end = 20.dp),
-                    size = 18.dp
-                )
-                TouchPoint(
-                    modifier = Modifier
-                        .align(Alignment.CenterStart)
-                        .padding(start = 26.dp, top = 4.dp),
-                    size = 22.dp
-                )
-                TouchPoint(
-                    modifier = Modifier
-                        .align(Alignment.Center)
-                        .padding(top = 8.dp, end = 12.dp),
-                    size = 24.dp
-                )
-                TouchPoint(
-                    modifier = Modifier
-                        .align(Alignment.BottomCenter)
-                        .padding(bottom = 58.dp, end = 18.dp),
-                    size = 18.dp
-                )
-                TouchPoint(
-                    modifier = Modifier
-                        .align(Alignment.BottomStart)
-                        .padding(start = 26.dp, bottom = 26.dp),
-                    size = 14.dp
-                )
-            }
-        }
-    }
-}
-
-@Composable
-private fun ScreenGrid() {
-    Box(
-        modifier = Modifier
-            .fillMaxSize()
-            .padding(12.dp)
-    ) {
-        androidx.compose.foundation.Canvas(
-            modifier = Modifier.fillMaxSize()
-        ) {
-            val columns = 4
-            val rows = 6
-            val cellWidth = size.width / columns
-            val cellHeight = size.height / rows
-
-            for (i in 1 until columns) {
-                drawRect(
-                    color = Color.Transparent,
-                    blendMode = BlendMode.SrcOver
-                )
-                drawLine(
-                    color = CyanGlow.copy(alpha = 0.25f),
-                    start = androidx.compose.ui.geometry.Offset(cellWidth * i, 0f),
-                    end = androidx.compose.ui.geometry.Offset(cellWidth * i, size.height),
-                    strokeWidth = 2f
-                )
-            }
-
-            for (j in 1 until rows) {
-                drawLine(
-                    color = CyanGlow.copy(alpha = 0.25f),
-                    start = androidx.compose.ui.geometry.Offset(0f, cellHeight * j),
-                    end = androidx.compose.ui.geometry.Offset(size.width, cellHeight * j),
-                    strokeWidth = 2f
-                )
-            }
-        }
-    }
-}
-
-@Composable
-private fun TouchPoint(
-    modifier: Modifier,
-    size: androidx.compose.ui.unit.Dp
-) {
-    Box(
-        modifier = modifier
-            .size(size * 2.2f)
-            .clip(CircleShape)
-            .background(CyanGlow.copy(alpha = 0.14f)),
-        contentAlignment = Alignment.Center
-    ) {
-        Box(
-            modifier = Modifier
-                .size(size * 1.55f)
-                .clip(CircleShape)
-                .background(CyanGlow.copy(alpha = 0.22f)),
-            contentAlignment = Alignment.Center
-        ) {
-            Box(
-                modifier = Modifier
-                    .size(size)
-                    .clip(CircleShape)
-                    .background(CyanGlow)
-            )
-        }
-    }
-}
 
 @Composable
 private fun ActionCard(
