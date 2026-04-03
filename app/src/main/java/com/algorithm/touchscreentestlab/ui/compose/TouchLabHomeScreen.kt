@@ -1,5 +1,6 @@
 @file:Suppress("FunctionName")
-package com.example.touchlab.ui
+
+package com.algorithm.touchscreentestlab.ui.compose
 
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.background
@@ -47,10 +48,12 @@ import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.graphicsLayer
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.algorithm.touchscreentestlab.R
 
 private val ScreenBgTop = Color(0xFF060B22)
 private val ScreenBgMiddle = Color(0xFF091532)
@@ -103,8 +106,8 @@ fun TouchLabHomeScreen(
             Spacer(modifier = Modifier.height(18.dp))
 
             ActionCard(
-                title = "Quick Test",
-                subtitle = "Run a full screen check",
+                title = stringResource(R.string.quick_test),
+                subtitle = stringResource(R.string.quick_test_subtitle),
                 icon = {
                     Icon(
                         imageVector = Icons.Outlined.ScreenshotMonitor,
@@ -119,8 +122,8 @@ fun TouchLabHomeScreen(
             Spacer(modifier = Modifier.height(14.dp))
 
             ActionCard(
-                title = "Multi-Touch Test",
-                subtitle = "Check multiple touch points",
+                title = stringResource(R.string.multi_touch_test),
+                subtitle = stringResource(R.string.multi_touch_test_subtitle),
                 icon = {
                     Icon(
                         imageVector = Icons.Outlined.TouchApp,
@@ -135,8 +138,8 @@ fun TouchLabHomeScreen(
             Spacer(modifier = Modifier.height(14.dp))
 
             ActionCard(
-                title = "Draw Test",
-                subtitle = "Test touch drawing accuracy",
+                title = stringResource(R.string.draw_test),
+                subtitle = stringResource(R.string.draw_test_subtitle),
                 icon = {
                     Icon(
                         imageVector = Icons.Outlined.Draw,
@@ -151,8 +154,8 @@ fun TouchLabHomeScreen(
             Spacer(modifier = Modifier.height(14.dp))
 
             ActionCard(
-                title = "Edge Test",
-                subtitle = "Examine screen edges",
+                title = stringResource(R.string.edge_test),
+                subtitle = stringResource(R.string.edge_test_subtitle),
                 icon = {
                     Icon(
                         imageVector = Icons.Outlined.BorderOuter,
@@ -275,18 +278,16 @@ private fun HeaderSection() {
 
         Spacer(modifier = Modifier.width(8.dp))
 
-        Column(
-            verticalArrangement = Arrangement.Center
-        ) {
+        Column(verticalArrangement = Arrangement.Center) {
             Text(
-                text = "TouchLab",
+                text = stringResource(R.string.home_title),
                 color = Color.White,
                 fontSize = 16.sp,
                 fontWeight = FontWeight.Bold
             )
 
             Text(
-                text = "Screen & Touch Diagnostic",
+                text = stringResource(R.string.home_subtitle),
                 color = Color(0xFF53D9FF),
                 fontSize = 8.sp,
                 fontWeight = FontWeight.Medium,
@@ -364,7 +365,7 @@ private fun HeroCard() {
                 verticalArrangement = Arrangement.Center
             ) {
                 Text(
-                    text = "Test your screen in\nseconds",
+                    text = stringResource(R.string.hero_title),
                     color = Color.White,
                     fontSize = 12.sp,
                     fontWeight = FontWeight.ExtraBold,
@@ -374,7 +375,7 @@ private fun HeroCard() {
                 Spacer(modifier = Modifier.height(4.dp))
 
                 Text(
-                    text = "Check dead zones, multi-touch, and touch",
+                    text = stringResource(R.string.hero_subtitle),
                     color = Color(0xFFAED6FF),
                     fontSize = 7.sp,
                     fontWeight = FontWeight.Medium,
@@ -448,7 +449,6 @@ private fun HeroPhonePreviewCompactSmall() {
             }
     ) {
         Box(modifier = Modifier.matchParentSize()) {
-
             Box(
                 modifier = Modifier
                     .align(Alignment.CenterStart)
@@ -671,9 +671,7 @@ private fun ActionCard(
                 )
                 .padding(horizontal = 18.dp, vertical = 18.dp)
         ) {
-            Row(
-                verticalAlignment = Alignment.CenterVertically
-            ) {
+            Row(verticalAlignment = Alignment.CenterVertically) {
                 Box(
                     modifier = Modifier
                         .size(54.dp)
@@ -729,7 +727,7 @@ private fun DeviceOverviewCard() {
                 .padding(vertical = 16.dp)
         ) {
             Text(
-                text = "Device Overview",
+                text = stringResource(R.string.device_overview),
                 color = WhiteText,
                 fontSize = 20.sp,
                 fontWeight = FontWeight.Bold,
@@ -748,8 +746,8 @@ private fun DeviceOverviewCard() {
                         modifier = Modifier.size(22.dp)
                     )
                 },
-                label = "Max Touches:",
-                value = "10 Points"
+                label = stringResource(R.string.max_touches_label),
+                value = stringResource(R.string.max_touches_value)
             )
 
             HorizontalDivider(color = DividerColor)
@@ -763,8 +761,8 @@ private fun DeviceOverviewCard() {
                         modifier = Modifier.size(22.dp)
                     )
                 },
-                label = "Last Test:",
-                value = "Not Run Yet"
+                label = stringResource(R.string.last_test_label),
+                value = stringResource(R.string.last_test_value)
             )
 
             HorizontalDivider(color = DividerColor)
@@ -778,8 +776,8 @@ private fun DeviceOverviewCard() {
                         modifier = Modifier.size(22.dp)
                     )
                 },
-                label = "Screen Size:",
-                value = "6.5 inches"
+                label = stringResource(R.string.screen_size_label),
+                value = stringResource(R.string.screen_size_value)
             )
 
             HorizontalDivider(color = DividerColor)
@@ -793,8 +791,8 @@ private fun DeviceOverviewCard() {
                         modifier = Modifier.size(22.dp)
                     )
                 },
-                label = "Mode:",
-                value = "Offline"
+                label = stringResource(R.string.mode_label),
+                value = stringResource(R.string.mode_value)
             )
         }
     }

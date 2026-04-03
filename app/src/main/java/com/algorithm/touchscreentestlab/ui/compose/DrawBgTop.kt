@@ -2,12 +2,8 @@
 
 package com.algorithm.touchscreentestlab.ui.compose
 
-import android.graphics.Bitmap
-import android.graphics.Canvas as AndroidCanvas
-import android.graphics.Paint
 import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.Canvas
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
@@ -38,8 +34,7 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableIntStateOf
-import androidx.compose.runtime.mutableLongStateOf
+import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
@@ -48,15 +43,17 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.asImageBitmap
+import androidx.compose.ui.graphics.Path
+import androidx.compose.ui.graphics.StrokeCap
+import androidx.compose.ui.graphics.StrokeJoin
+import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.input.pointer.PointerEventPass
 import androidx.compose.ui.input.pointer.pointerInput
-import androidx.compose.ui.layout.onSizeChanged
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.unit.IntSize
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import kotlin.math.abs
+import com.algorithm.touchscreentestlab.R
 
 private val DrawBgTop = Color(0xFF060B22)
 private val DrawBgMiddle = Color(0xFF091532)
@@ -69,6 +66,12 @@ private val DrawSecondary = Color(0xFFAEC2F2)
 private val DrawCard = Color(0xFF11214B)
 private val DrawCard2 = Color(0xFF0C1737)
 private val DrawGreen = Color(0xFF5BFFB3)
+private val DrawGrid = Color(0xFF6FD8FF)
+
+private data class DrawStroke(
+    val points: MutableList<Offset>,
+    val color: Color
+)
 
 @Composable
 fun DrawTestScreen(
@@ -76,19 +79,16 @@ fun DrawTestScreen(
 ) {
     BackHandler(onBack = onBack)
 
-    var currentPointerCount by remember { mutableIntStateOf(0) }
-    var strokeCount by remember { mutableIntStateOf(0) }
+    val strokes = remember { mutableStateListOf<DrawStroke>() }
+    var currentPointerCount by remember { mutableStateOf(0) }
+    var totalPoints by remember { mutableStateOf(0) }
     var hasDrawn by remember { mutableStateOf(false) }
-    var redrawTick by remember { mutableLongStateOf(0L) }
-
-    val bitmapHolder = remember { SafeBitmapHolder() }
 
     fun resetTest() {
+        strokes.clear()
         currentPointerCount = 0
-        strokeCount = 0
+        totalPoints = 0
         hasDrawn = false
-        bitmapHolder.clear()
-        redrawTick++
     }
 
     Box(
@@ -113,7 +113,8 @@ fun DrawTestScreen(
 
             DrawStatusCard(
                 hasDrawn = hasDrawn,
-                totalStrokes = strokeCount,
+                totalStrokes = strokes.size,
+                totalPoints = totalPoints,
                 currentPointerCount = currentPointerCount,
                 onReset = ::resetTest
             )
@@ -122,9 +123,9 @@ fun DrawTestScreen(
 
             Text(
                 text = if (hasDrawn) {
-                    "Nice! Touch drawing is detected."
+                    stringResource(R.string.draw_success)
                 } else {
-                    "Draw on the screen to test touch tracking."
+                    stringResource(R.string.draw_instruction)
                 },
                 color = DrawWhite,
                 fontSize = 18.sp,
@@ -134,7 +135,7 @@ fun DrawTestScreen(
             Spacer(modifier = Modifier.height(6.dp))
 
             Text(
-                text = "Try slow lines, quick lines, curves, and corners.",
+                text = stringResource(R.string.draw_hint),
                 color = DrawSecondary,
                 fontSize = 14.sp
             )
@@ -174,61 +175,47 @@ fun DrawTestScreen(
                             ),
                             RoundedCornerShape(18.dp)
                         )
-                        .onSizeChanged { size ->
-                            bitmapHolder.ensure(size)
-                            redrawTick++
-                        }
                         .pointerInput(Unit) {
                             awaitEachGesture {
-                                var lastPoint: Offset? = null
+                                var strokeStarted = false
+                                var currentStroke: DrawStroke? = null
 
                                 while (true) {
                                     val event = awaitPointerEvent(PointerEventPass.Main)
                                     val pressedChanges = event.changes.filter { it.pressed }
+
                                     currentPointerCount = pressedChanges.size
 
-                                    val point = pressedChanges.firstOrNull()?.position
-
-                                    if (point != null) {
-                                        if (lastPoint == null) {
-                                            strokeCount += 1
+                                    if (pressedChanges.isNotEmpty()) {
+                                        if (!strokeStarted) {
+                                            val start = pressedChanges.first().position
+                                            currentStroke = DrawStroke(
+                                                points = mutableListOf(start),
+                                                color = DrawCyan
+                                            )
+                                            strokes.add(currentStroke)
+                                            totalPoints += 1
                                             hasDrawn = true
-                                            bitmapHolder.drawDot(point)
-                                            redrawTick++
-                                            lastPoint = point
+                                            strokeStarted = true
                                         } else {
-                                            val prev = lastPoint!!
-                                            val dx = abs(point.x - prev.x)
-                                            val dy = abs(point.y - prev.y)
-
-                                            if (dx > 1f || dy > 1f) {
-                                                bitmapHolder.drawLine(prev, point)
-                                                redrawTick++
-                                                lastPoint = point
+                                            pressedChanges.forEachIndexed { index, change ->
+                                                if (index == 0) {
+                                                    currentStroke?.points?.add(change.position)
+                                                    totalPoints += 1
+                                                }
                                             }
                                         }
                                     }
 
                                     if (event.changes.none { it.pressed }) {
                                         currentPointerCount = 0
-                                        lastPoint = null
                                         break
                                     }
                                 }
                             }
                         }
                 ) {
-                    DrawGridBackground()
-
-                    val bmp = bitmapHolder.bitmap
-                    val _tick = redrawTick
-                    if (bmp != null) {
-                        Image(
-                            bitmap = bmp.asImageBitmap(),
-                            contentDescription = null,
-                            modifier = Modifier.fillMaxSize()
-                        )
-                    }
+                    DrawGridCanvas(strokes = strokes)
 
                     if (!hasDrawn) {
                         Box(
@@ -237,7 +224,7 @@ fun DrawTestScreen(
                         ) {
                             Column(horizontalAlignment = Alignment.CenterHorizontally) {
                                 Text(
-                                    text = "Start drawing",
+                                    text = stringResource(R.string.draw_start_hint),
                                     color = DrawWhite.copy(alpha = 0.85f),
                                     fontSize = 24.sp,
                                     fontWeight = FontWeight.Bold
@@ -246,7 +233,7 @@ fun DrawTestScreen(
                                 Spacer(modifier = Modifier.height(8.dp))
 
                                 Text(
-                                    text = "Lines should follow your finger smoothly",
+                                    text = stringResource(R.string.draw_start_subhint),
                                     color = DrawSecondary,
                                     fontSize = 14.sp
                                 )
@@ -267,92 +254,8 @@ fun DrawTestScreen(
     }
 }
 
-private class SafeBitmapHolder {
-    var bitmap: Bitmap? = null
-        private set
-    private var canvas: AndroidCanvas? = null
-
-    private val glowPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
-        color = android.graphics.Color.argb(55, 67, 219, 255)
-        style = Paint.Style.STROKE
-        strokeWidth = 24f
-        strokeCap = Paint.Cap.ROUND
-        strokeJoin = Paint.Join.ROUND
-    }
-
-    private val linePaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
-        color = android.graphics.Color.argb(255, 67, 219, 255)
-        style = Paint.Style.STROKE
-        strokeWidth = 8f
-        strokeCap = Paint.Cap.ROUND
-        strokeJoin = Paint.Join.ROUND
-    }
-
-    private val dotPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
-        color = android.graphics.Color.argb(255, 67, 219, 255)
-        style = Paint.Style.FILL
-    }
-
-    fun ensure(size: IntSize) {
-        if (size.width <= 0 || size.height <= 0) return
-
-        val current = bitmap
-        if (current != null && current.width == size.width && current.height == size.height) return
-
-        val newBitmap = Bitmap.createBitmap(
-            size.width,
-            size.height,
-            Bitmap.Config.ARGB_8888
-        )
-        bitmap = newBitmap
-        canvas = AndroidCanvas(newBitmap)
-    }
-
-    fun clear() {
-        bitmap?.eraseColor(android.graphics.Color.TRANSPARENT)
-    }
-
-    fun drawDot(point: Offset) {
-        canvas?.drawCircle(point.x, point.y, 18f, dotPaint)
-    }
-
-    fun drawLine(from: Offset, to: Offset) {
-        canvas?.drawLine(from.x, from.y, to.x, to.y, glowPaint)
-        canvas?.drawLine(from.x, from.y, to.x, to.y, linePaint)
-    }
-}
-
 @Composable
-private fun DrawGridBackground() {
-    Canvas(modifier = Modifier.fillMaxSize()) {
-        val guideColor = Color(0xFF6FD8FF).copy(alpha = 0.12f)
-
-        for (i in 1..4) {
-            val y = size.height * (i / 5f)
-            drawLine(
-                color = guideColor,
-                start = Offset(0f, y),
-                end = Offset(size.width, y),
-                strokeWidth = 2f
-            )
-        }
-
-        for (i in 1..2) {
-            val x = size.width * (i / 3f)
-            drawLine(
-                color = guideColor,
-                start = Offset(x, 0f),
-                end = Offset(x, size.height),
-                strokeWidth = 2f
-            )
-        }
-    }
-}
-
-@Composable
-private fun DrawTestTopBar(
-    onBack: () -> Unit
-) {
+private fun DrawTestTopBar(onBack: () -> Unit) {
     Row(
         modifier = Modifier.fillMaxWidth(),
         verticalAlignment = Alignment.CenterVertically
@@ -372,13 +275,13 @@ private fun DrawTestTopBar(
 
         Column {
             Text(
-                text = "Draw Test",
+                text = stringResource(R.string.draw_screen_title),
                 color = DrawWhite,
                 fontSize = 22.sp,
                 fontWeight = FontWeight.Bold
             )
             Text(
-                text = "Check touch drawing accuracy",
+                text = stringResource(R.string.draw_screen_subtitle),
                 color = DrawSecondary,
                 fontSize = 13.sp
             )
@@ -390,6 +293,7 @@ private fun DrawTestTopBar(
 private fun DrawStatusCard(
     hasDrawn: Boolean,
     totalStrokes: Int,
+    totalPoints: Int,
     currentPointerCount: Int,
     onReset: () -> Unit
 ) {
@@ -420,7 +324,11 @@ private fun DrawStatusCard(
                 ) {
                     Column(modifier = Modifier.weight(1f)) {
                         Text(
-                            text = if (hasDrawn) "Status: Passed" else "Status: Waiting",
+                            text = if (hasDrawn) {
+                                stringResource(R.string.status_passed)
+                            } else {
+                                stringResource(R.string.status_waiting)
+                            },
                             color = if (hasDrawn) DrawGreen else DrawWhite,
                             fontSize = 18.sp,
                             fontWeight = FontWeight.Bold
@@ -429,7 +337,11 @@ private fun DrawStatusCard(
                         Spacer(modifier = Modifier.height(4.dp))
 
                         Text(
-                            text = "Strokes: $totalStrokes",
+                            text = stringResource(
+                                R.string.draw_strokes_points,
+                                totalStrokes,
+                                totalPoints
+                            ),
                             color = DrawSecondary,
                             fontSize = 14.sp
                         )
@@ -437,7 +349,7 @@ private fun DrawStatusCard(
                         Spacer(modifier = Modifier.height(2.dp))
 
                         Text(
-                            text = "Active fingers: $currentPointerCount",
+                            text = stringResource(R.string.active_fingers, currentPointerCount),
                             color = DrawSecondary,
                             fontSize = 14.sp
                         )
@@ -460,6 +372,70 @@ private fun DrawStatusCard(
 }
 
 @Composable
+private fun DrawGridCanvas(strokes: List<DrawStroke>) {
+    Canvas(modifier = Modifier.fillMaxSize()) {
+        val guideColor = DrawGrid.copy(alpha = 0.12f)
+
+        for (i in 1..4) {
+            val y = size.height * (i / 5f)
+            drawLine(
+                color = guideColor,
+                start = Offset(0f, y),
+                end = Offset(size.width, y),
+                strokeWidth = 2f
+            )
+        }
+
+        for (i in 1..2) {
+            val x = size.width * (i / 3f)
+            drawLine(
+                color = guideColor,
+                start = Offset(x, 0f),
+                end = Offset(x, size.height),
+                strokeWidth = 2f
+            )
+        }
+
+        strokes.forEach { stroke ->
+            if (stroke.points.size == 1) {
+                drawCircle(
+                    color = stroke.color,
+                    radius = 18f,
+                    center = stroke.points.first()
+                )
+            } else if (stroke.points.size > 1) {
+                val path = Path().apply {
+                    moveTo(stroke.points.first().x, stroke.points.first().y)
+                    for (i in 1 until stroke.points.size) {
+                        lineTo(stroke.points[i].x, stroke.points[i].y)
+                    }
+                }
+
+                drawPath(
+                    path = path,
+                    color = stroke.color.copy(alpha = 0.22f),
+                    style = Stroke(
+                        width = 28f,
+                        cap = StrokeCap.Round,
+                        join = StrokeJoin.Round
+                    )
+                )
+
+                drawPath(
+                    path = path,
+                    color = stroke.color,
+                    style = Stroke(
+                        width = 10f,
+                        cap = StrokeCap.Round,
+                        join = StrokeJoin.Round
+                    )
+                )
+            }
+        }
+    }
+}
+
+@Composable
 private fun DrawBottomActions(
     completed: Boolean,
     onReset: () -> Unit,
@@ -471,24 +447,18 @@ private fun DrawBottomActions(
     ) {
         DrawActionButton(
             modifier = Modifier.weight(1f),
-            title = "Reset",
+            title = stringResource(R.string.reset),
             background = Brush.horizontalGradient(
-                listOf(
-                    Color(0xFF16335F),
-                    Color(0xFF1C3F73)
-                )
+                listOf(Color(0xFF16335F), Color(0xFF1C3F73))
             ),
             onClick = onReset
         )
 
         DrawActionButton(
             modifier = Modifier.weight(1f),
-            title = if (completed) "Done" else "Finish",
+            title = stringResource(if (completed) R.string.done else R.string.finish),
             background = Brush.horizontalGradient(
-                listOf(
-                    Color(0xFF18B8FF),
-                    Color(0xFF6E61FF)
-                )
+                listOf(Color(0xFF18B8FF), Color(0xFF6E61FF))
             ),
             leading = {
                 if (completed) {
@@ -532,10 +502,7 @@ private fun DrawActionButton(
             verticalAlignment = Alignment.CenterVertically
         ) {
             leading?.invoke()
-
-            if (leading != null) {
-                Spacer(modifier = Modifier.width(8.dp))
-            }
+            if (leading != null) Spacer(modifier = Modifier.width(8.dp))
 
             Text(
                 text = title,

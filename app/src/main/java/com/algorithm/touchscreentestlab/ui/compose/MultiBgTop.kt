@@ -46,9 +46,11 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.input.pointer.PointerEventPass
 import androidx.compose.ui.input.pointer.pointerInput
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.algorithm.touchscreentestlab.R
 
 private val MultiBgTop = Color(0xFF060B22)
 private val MultiBgMiddle = Color(0xFF091532)
@@ -76,7 +78,6 @@ fun MultiTouchTestScreen(
     BackHandler(onBack = onBack)
 
     val activeTouches = remember { mutableStateListOf<MultiTouchPoint>() }
-
     var highestReached by remember { mutableIntStateOf(0) }
 
     val targetTouches = 5
@@ -93,11 +94,7 @@ fun MultiTouchTestScreen(
             .fillMaxSize()
             .background(
                 Brush.verticalGradient(
-                    colors = listOf(
-                        MultiBgTop,
-                        MultiBgMiddle,
-                        MultiBgBottom
-                    )
+                    colors = listOf(MultiBgTop, MultiBgMiddle, MultiBgBottom)
                 )
             )
     ) {
@@ -124,9 +121,9 @@ fun MultiTouchTestScreen(
 
             Text(
                 text = if (completed) {
-                    "Great! Multi-touch works."
+                    stringResource(R.string.multi_touch_success)
                 } else {
-                    "Place several fingers on the screen."
+                    stringResource(R.string.multi_touch_instruction)
                 },
                 color = MultiWhite,
                 fontSize = 18.sp,
@@ -136,7 +133,7 @@ fun MultiTouchTestScreen(
             Spacer(modifier = Modifier.height(6.dp))
 
             Text(
-                text = "Try touching with multiple fingers at the same time.",
+                text = stringResource(R.string.multi_touch_hint),
                 color = MultiSecondary,
                 fontSize = 14.sp
             )
@@ -206,9 +203,7 @@ fun MultiTouchTestScreen(
                             }
                         }
                 ) {
-                    MultiTouchCanvas(
-                        touches = activeTouches.toList()
-                    )
+                    MultiTouchCanvas(touches = activeTouches.toList())
 
                     MultiTouchCenterInfo(
                         currentTouches = currentTouches,
@@ -231,9 +226,7 @@ fun MultiTouchTestScreen(
 }
 
 @Composable
-private fun MultiTouchTopBar(
-    onBack: () -> Unit
-) {
+private fun MultiTouchTopBar(onBack: () -> Unit) {
     Row(
         modifier = Modifier.fillMaxWidth(),
         verticalAlignment = Alignment.CenterVertically
@@ -253,13 +246,13 @@ private fun MultiTouchTopBar(
 
         Column {
             Text(
-                text = "Multi-Touch Test",
+                text = stringResource(R.string.multi_touch_screen_title),
                 color = MultiWhite,
                 fontSize = 22.sp,
                 fontWeight = FontWeight.Bold
             )
             Text(
-                text = "Check several fingers at once",
+                text = stringResource(R.string.multi_touch_screen_subtitle),
                 color = MultiSecondary,
                 fontSize = 13.sp
             )
@@ -305,7 +298,11 @@ private fun MultiTouchStatusCard(
                 ) {
                     Column(modifier = Modifier.weight(1f)) {
                         Text(
-                            text = if (completed) "Status: Passed" else "Status: In progress",
+                            text = if (completed) {
+                                stringResource(R.string.status_passed)
+                            } else {
+                                stringResource(R.string.status_in_progress)
+                            },
                             color = if (completed) MultiGreen else MultiWhite,
                             fontSize = 18.sp,
                             fontWeight = FontWeight.Bold
@@ -314,7 +311,11 @@ private fun MultiTouchStatusCard(
                         Spacer(modifier = Modifier.height(4.dp))
 
                         Text(
-                            text = "Current: $currentTouches   •   Highest: $highestReached",
+                            text = stringResource(
+                                R.string.multi_touch_current_highest,
+                                currentTouches,
+                                highestReached
+                            ),
                             color = MultiSecondary,
                             fontSize = 14.sp
                         )
@@ -348,12 +349,7 @@ private fun MultiTouchStatusCard(
                             .fillMaxWidth(progressFraction)
                             .height(12.dp)
                             .background(
-                                Brush.horizontalGradient(
-                                    listOf(
-                                        MultiCyan,
-                                        MultiPurple
-                                    )
-                                ),
+                                Brush.horizontalGradient(listOf(MultiCyan, MultiPurple)),
                                 RoundedCornerShape(50)
                             )
                     )
@@ -362,7 +358,7 @@ private fun MultiTouchStatusCard(
                 Spacer(modifier = Modifier.height(8.dp))
 
                 Text(
-                    text = "Target: $targetTouches fingers",
+                    text = stringResource(R.string.multi_touch_target, targetTouches),
                     color = MultiWhite,
                     fontSize = 14.sp,
                     fontWeight = FontWeight.SemiBold
@@ -373,15 +369,9 @@ private fun MultiTouchStatusCard(
 }
 
 @Composable
-private fun MultiTouchCanvas(
-    touches: List<MultiTouchPoint>
-) {
-    Canvas(
-        modifier = Modifier.fillMaxSize()
-    ) {
-        drawRect(
-            color = Color(0xFF0A1730)
-        )
+private fun MultiTouchCanvas(touches: List<MultiTouchPoint>) {
+    Canvas(modifier = Modifier.fillMaxSize()) {
+        drawRect(color = Color(0xFF0A1730))
 
         val guideColor = Color(0xFF6FD8FF).copy(alpha = 0.12f)
 
@@ -450,11 +440,9 @@ private fun MultiTouchCenterInfo(
         contentAlignment = Alignment.Center
     ) {
         if (currentTouches == 0) {
-            Column(
-                horizontalAlignment = Alignment.CenterHorizontally
-            ) {
+            Column(horizontalAlignment = Alignment.CenterHorizontally) {
                 Text(
-                    text = "Touch here",
+                    text = stringResource(R.string.multi_touch_start_hint),
                     color = MultiWhite.copy(alpha = 0.85f),
                     fontSize = 24.sp,
                     fontWeight = FontWeight.Bold
@@ -463,15 +451,13 @@ private fun MultiTouchCenterInfo(
                 Spacer(modifier = Modifier.height(8.dp))
 
                 Text(
-                    text = "Use several fingers together",
+                    text = stringResource(R.string.multi_touch_start_subhint),
                     color = MultiSecondary,
                     fontSize = 14.sp
                 )
             }
         } else {
-            Column(
-                horizontalAlignment = Alignment.CenterHorizontally
-            ) {
+            Column(horizontalAlignment = Alignment.CenterHorizontally) {
                 Text(
                     text = currentTouches.toString(),
                     color = if (completed) MultiGreen else MultiWhite,
@@ -480,7 +466,13 @@ private fun MultiTouchCenterInfo(
                 )
 
                 Text(
-                    text = if (currentTouches == 1) "finger" else "fingers",
+                    text = stringResource(
+                        if (currentTouches == 1) {
+                            R.string.multi_touch_finger_singular
+                        } else {
+                            R.string.multi_touch_finger_plural
+                        }
+                    ),
                     color = MultiSecondary,
                     fontSize = 16.sp,
                     fontWeight = FontWeight.Medium
@@ -489,7 +481,11 @@ private fun MultiTouchCenterInfo(
                 Spacer(modifier = Modifier.height(8.dp))
 
                 Text(
-                    text = "Highest: $highestReached / $targetTouches",
+                    text = stringResource(
+                        R.string.multi_touch_highest_progress,
+                        highestReached,
+                        targetTouches
+                    ),
                     color = if (completed) MultiGreen else MultiSecondary,
                     fontSize = 14.sp,
                     fontWeight = FontWeight.SemiBold
@@ -511,24 +507,18 @@ private fun MultiTouchBottomActions(
     ) {
         MultiActionButton(
             modifier = Modifier.weight(1f),
-            title = "Reset",
+            title = stringResource(R.string.reset),
             background = Brush.horizontalGradient(
-                listOf(
-                    Color(0xFF16335F),
-                    Color(0xFF1C3F73)
-                )
+                listOf(Color(0xFF16335F), Color(0xFF1C3F73))
             ),
             onClick = onReset
         )
 
         MultiActionButton(
             modifier = Modifier.weight(1f),
-            title = if (completed) "Done" else "Finish",
+            title = stringResource(if (completed) R.string.done else R.string.finish),
             background = Brush.horizontalGradient(
-                listOf(
-                    Color(0xFF18B8FF),
-                    Color(0xFF6E61FF)
-                )
+                listOf(Color(0xFF18B8FF), Color(0xFF6E61FF))
             ),
             leading = {
                 if (completed) {
@@ -572,10 +562,7 @@ private fun MultiActionButton(
             verticalAlignment = Alignment.CenterVertically
         ) {
             leading?.invoke()
-
-            if (leading != null) {
-                Spacer(modifier = Modifier.width(8.dp))
-            }
+            if (leading != null) Spacer(modifier = Modifier.width(8.dp))
 
             Text(
                 text = title,

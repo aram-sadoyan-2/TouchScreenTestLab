@@ -1,6 +1,6 @@
 @file:Suppress("FunctionName")
 
-package com.example.touchlab.ui
+package com.algorithm.touchscreentestlab.ui.compose
 
 import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.Canvas
@@ -33,10 +33,10 @@ import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.mutableStateListOf
-import androidx.compose.runtime.remember
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -49,10 +49,12 @@ import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.input.pointer.PointerEventPass
 import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.layout.onSizeChanged
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.IntSize
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.algorithm.touchscreentestlab.R
 
 private val QuickBgTop = Color(0xFF060B22)
 private val QuickBgMiddle = Color(0xFF091532)
@@ -106,10 +108,7 @@ fun QuickTestScreen(
         val row = (offset.y / cellHeight).toInt().coerceIn(0, rows - 1)
 
         val index = row * cols + col
-
-        if (!visitedCells.contains(index)) {
-            visitedCells.add(index)
-        }
+        if (!visitedCells.contains(index)) visitedCells.add(index)
 
         testCompleted = visitedCells.size == totalCells
     }
@@ -119,11 +118,7 @@ fun QuickTestScreen(
             .fillMaxSize()
             .background(
                 Brush.verticalGradient(
-                    colors = listOf(
-                        QuickBgTop,
-                        QuickBgMiddle,
-                        QuickBgBottom
-                    )
+                    colors = listOf(QuickBgTop, QuickBgMiddle, QuickBgBottom)
                 )
             )
     ) {
@@ -150,9 +145,9 @@ fun QuickTestScreen(
 
             Text(
                 text = if (testCompleted) {
-                    "Great! Full screen checked."
+                    stringResource(R.string.quick_test_success)
                 } else {
-                    "Touch all zones on the screen."
+                    stringResource(R.string.quick_test_instruction)
                 },
                 color = QuickWhite,
                 fontSize = 18.sp,
@@ -162,7 +157,7 @@ fun QuickTestScreen(
             Spacer(modifier = Modifier.height(6.dp))
 
             Text(
-                text = "Every touched area will light up. Try to cover all blocks.",
+                text = stringResource(R.string.quick_test_hint),
                 color = QuickSecondary,
                 fontSize = 14.sp
             )
@@ -202,9 +197,7 @@ fun QuickTestScreen(
                             ),
                             RoundedCornerShape(18.dp)
                         )
-                        .onSizeChanged { size ->
-                            containerSize = size
-                        }
+                        .onSizeChanged { containerSize = it }
                         .pointerInput(Unit) {
                             awaitEachGesture {
                                 while (true) {
@@ -253,9 +246,7 @@ fun QuickTestScreen(
 }
 
 @Composable
-private fun QuickTestTopBar(
-    onBack: () -> Unit
-) {
+private fun QuickTestTopBar(onBack: () -> Unit) {
     Row(
         modifier = Modifier.fillMaxWidth(),
         verticalAlignment = Alignment.CenterVertically
@@ -275,13 +266,13 @@ private fun QuickTestTopBar(
 
         Column {
             Text(
-                text = "Quick Test",
+                text = stringResource(R.string.quick_test_screen_title),
                 color = QuickWhite,
                 fontSize = 22.sp,
                 fontWeight = FontWeight.Bold
             )
             Text(
-                text = "Find dead zones fast",
+                text = stringResource(R.string.quick_test_screen_subtitle),
                 color = QuickSecondary,
                 fontSize = 13.sp
             )
@@ -324,7 +315,11 @@ private fun QuickStatusCard(
                 ) {
                     Column(modifier = Modifier.weight(1f)) {
                         Text(
-                            text = if (completed) "Status: Passed" else "Status: In progress",
+                            text = if (completed) {
+                                stringResource(R.string.status_passed)
+                            } else {
+                                stringResource(R.string.status_in_progress)
+                            },
                             color = if (completed) QuickGreen else QuickWhite,
                             fontSize = 18.sp,
                             fontWeight = FontWeight.Bold
@@ -333,7 +328,7 @@ private fun QuickStatusCard(
                         Spacer(modifier = Modifier.height(4.dp))
 
                         Text(
-                            text = "$progress / $total cells covered",
+                            text = stringResource(R.string.quick_test_cells_covered, progress, total),
                             color = QuickSecondary,
                             fontSize = 14.sp
                         )
@@ -370,10 +365,7 @@ private fun QuickStatusCard(
                             .height(12.dp)
                             .background(
                                 Brush.horizontalGradient(
-                                    listOf(
-                                        QuickCyan,
-                                        QuickPurple
-                                    )
+                                    listOf(QuickCyan, QuickPurple)
                                 ),
                                 RoundedCornerShape(50)
                             )
@@ -383,7 +375,7 @@ private fun QuickStatusCard(
                 Spacer(modifier = Modifier.height(8.dp))
 
                 Text(
-                    text = "$percent%",
+                    text = stringResource(R.string.percent_format, percent),
                     color = QuickWhite,
                     fontSize = 14.sp,
                     fontWeight = FontWeight.SemiBold
@@ -400,16 +392,13 @@ private fun QuickGridCanvas(
     visitedCells: Set<Int>,
     activeTouches: List<TouchMarker>
 ) {
-    Canvas(
-        modifier = Modifier.fillMaxSize()
-    ) {
+    Canvas(modifier = Modifier.fillMaxSize()) {
         val cellWidth = size.width / cols
         val cellHeight = size.height / rows
 
         for (row in 0 until rows) {
             for (col in 0 until cols) {
                 val index = row * cols + col
-
                 val left = col * cellWidth
                 val top = row * cellHeight
 
@@ -417,10 +406,7 @@ private fun QuickGridCanvas(
                     drawRoundRect(
                         color = QuickCyan.copy(alpha = 0.20f),
                         topLeft = Offset(left + 2f, top + 2f),
-                        size = Size(
-                            width = cellWidth - 4f,
-                            height = cellHeight - 4f
-                        ),
+                        size = Size(cellWidth - 4f, cellHeight - 4f),
                         cornerRadius = CornerRadius(10f, 10f)
                     )
                 }
@@ -483,26 +469,20 @@ private fun QuickBottomActions(
         modifier = Modifier.fillMaxWidth(),
         horizontalArrangement = Arrangement.spacedBy(12.dp)
     ) {
-        ActionButton(
+        QuickActionButton(
             modifier = Modifier.weight(1f),
-            title = "Reset",
+            title = stringResource(R.string.reset),
             background = Brush.horizontalGradient(
-                listOf(
-                    Color(0xFF16335F),
-                    Color(0xFF1C3F73)
-                )
+                listOf(Color(0xFF16335F), Color(0xFF1C3F73))
             ),
             onClick = onReset
         )
 
-        ActionButton(
+        QuickActionButton(
             modifier = Modifier.weight(1f),
-            title = if (completed) "Done" else "Finish",
+            title = stringResource(if (completed) R.string.done else R.string.finish),
             background = Brush.horizontalGradient(
-                listOf(
-                    Color(0xFF18B8FF),
-                    Color(0xFF6E61FF)
-                )
+                listOf(Color(0xFF18B8FF), Color(0xFF6E61FF))
             ),
             leading = {
                 if (completed) {
@@ -520,7 +500,7 @@ private fun QuickBottomActions(
 }
 
 @Composable
-private fun ActionButton(
+private fun QuickActionButton(
     modifier: Modifier = Modifier,
     title: String,
     background: Brush,
@@ -546,10 +526,7 @@ private fun ActionButton(
             verticalAlignment = Alignment.CenterVertically
         ) {
             leading?.invoke()
-
-            if (leading != null) {
-                Spacer(modifier = Modifier.width(8.dp))
-            }
+            if (leading != null) Spacer(modifier = Modifier.width(8.dp))
 
             Text(
                 text = title,

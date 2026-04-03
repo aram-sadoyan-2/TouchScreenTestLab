@@ -51,10 +51,12 @@ import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.input.pointer.PointerEventPass
 import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.layout.onSizeChanged
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.IntSize
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.algorithm.touchscreentestlab.R
 
 private val EdgeBgTop = Color(0xFF060B22)
 private val EdgeBgMiddle = Color(0xFF091532)
@@ -148,11 +150,7 @@ fun EdgeTestScreen(
             .fillMaxSize()
             .background(
                 Brush.verticalGradient(
-                    colors = listOf(
-                        EdgeBgTop,
-                        EdgeBgMiddle,
-                        EdgeBgBottom
-                    )
+                    colors = listOf(EdgeBgTop, EdgeBgMiddle, EdgeBgBottom)
                 )
             )
     ) {
@@ -180,9 +178,9 @@ fun EdgeTestScreen(
 
             Text(
                 text = if (completed) {
-                    "Great! Screen edges responded."
+                    stringResource(R.string.edge_success)
                 } else {
-                    "Trace your finger around all screen edges."
+                    stringResource(R.string.edge_instruction)
                 },
                 color = EdgeWhite,
                 fontSize = 18.sp,
@@ -192,7 +190,7 @@ fun EdgeTestScreen(
             Spacer(modifier = Modifier.height(6.dp))
 
             Text(
-                text = "Move along top, right, bottom, and left borders.",
+                text = stringResource(R.string.edge_hint),
                 color = EdgeSecondary,
                 fontSize = 14.sp
             )
@@ -278,7 +276,7 @@ fun EdgeTestScreen(
                         ) {
                             Column(horizontalAlignment = Alignment.CenterHorizontally) {
                                 Text(
-                                    text = "Trace edges",
+                                    text = stringResource(R.string.edge_start_hint),
                                     color = EdgeWhite.copy(alpha = 0.85f),
                                     fontSize = 24.sp,
                                     fontWeight = FontWeight.Bold
@@ -287,7 +285,7 @@ fun EdgeTestScreen(
                                 Spacer(modifier = Modifier.height(8.dp))
 
                                 Text(
-                                    text = "Cover the full border of the screen",
+                                    text = stringResource(R.string.edge_start_subhint),
                                     color = EdgeSecondary,
                                     fontSize = 14.sp
                                 )
@@ -309,9 +307,7 @@ fun EdgeTestScreen(
 }
 
 @Composable
-private fun EdgeTestTopBar(
-    onBack: () -> Unit
-) {
+private fun EdgeTestTopBar(onBack: () -> Unit) {
     Row(
         modifier = Modifier.fillMaxWidth(),
         verticalAlignment = Alignment.CenterVertically
@@ -331,13 +327,13 @@ private fun EdgeTestTopBar(
 
         Column {
             Text(
-                text = "Edge Test",
+                text = stringResource(R.string.edge_screen_title),
                 color = EdgeWhite,
                 fontSize = 22.sp,
                 fontWeight = FontWeight.Bold
             )
             Text(
-                text = "Check border responsiveness",
+                text = stringResource(R.string.edge_screen_subtitle),
                 color = EdgeSecondary,
                 fontSize = 13.sp
             )
@@ -381,7 +377,11 @@ private fun EdgeStatusCard(
                 ) {
                     Column(modifier = Modifier.weight(1f)) {
                         Text(
-                            text = if (completed) "Status: Passed" else "Status: In progress",
+                            text = if (completed) {
+                                stringResource(R.string.status_passed)
+                            } else {
+                                stringResource(R.string.status_in_progress)
+                            },
                             color = if (completed) EdgeGreen else EdgeWhite,
                             fontSize = 18.sp,
                             fontWeight = FontWeight.Bold
@@ -390,7 +390,7 @@ private fun EdgeStatusCard(
                         Spacer(modifier = Modifier.height(4.dp))
 
                         Text(
-                            text = "$progress / $total edge zones covered",
+                            text = stringResource(R.string.edge_zones_covered, progress, total),
                             color = EdgeSecondary,
                             fontSize = 14.sp
                         )
@@ -398,7 +398,7 @@ private fun EdgeStatusCard(
                         Spacer(modifier = Modifier.height(2.dp))
 
                         Text(
-                            text = "Active fingers: $currentTouches",
+                            text = stringResource(R.string.active_fingers, currentTouches),
                             color = EdgeSecondary,
                             fontSize = 14.sp
                         )
@@ -434,12 +434,7 @@ private fun EdgeStatusCard(
                             )
                             .height(12.dp)
                             .background(
-                                Brush.horizontalGradient(
-                                    listOf(
-                                        EdgeCyan,
-                                        EdgePurple
-                                    )
-                                ),
+                                Brush.horizontalGradient(listOf(EdgeCyan, EdgePurple)),
                                 RoundedCornerShape(50)
                             )
                     )
@@ -448,7 +443,7 @@ private fun EdgeStatusCard(
                 Spacer(modifier = Modifier.height(8.dp))
 
                 Text(
-                    text = "$percent%",
+                    text = stringResource(R.string.percent_format, percent),
                     color = EdgeWhite,
                     fontSize = 14.sp,
                     fontWeight = FontWeight.SemiBold
@@ -472,9 +467,7 @@ private fun EdgeZonesCanvas(
         val segmentWidth = width / edgeSegmentsCount
         val segmentHeight = height / edgeSegmentsCount
 
-        drawRect(
-            color = Color(0xFF0A1730)
-        )
+        drawRect(color = Color(0xFF0A1730))
 
         for (i in 0 until edgeSegmentsCount) {
             val topId = i
@@ -581,24 +574,18 @@ private fun EdgeBottomActions(
     ) {
         EdgeActionButton(
             modifier = Modifier.weight(1f),
-            title = "Reset",
+            title = stringResource(R.string.reset),
             background = Brush.horizontalGradient(
-                listOf(
-                    Color(0xFF16335F),
-                    Color(0xFF1C3F73)
-                )
+                listOf(Color(0xFF16335F), Color(0xFF1C3F73))
             ),
             onClick = onReset
         )
 
         EdgeActionButton(
             modifier = Modifier.weight(1f),
-            title = if (completed) "Done" else "Finish",
+            title = stringResource(if (completed) R.string.done else R.string.finish),
             background = Brush.horizontalGradient(
-                listOf(
-                    Color(0xFF18B8FF),
-                    Color(0xFF6E61FF)
-                )
+                listOf(Color(0xFF18B8FF), Color(0xFF6E61FF))
             ),
             leading = {
                 if (completed) {
@@ -642,10 +629,7 @@ private fun EdgeActionButton(
             verticalAlignment = Alignment.CenterVertically
         ) {
             leading?.invoke()
-
-            if (leading != null) {
-                Spacer(modifier = Modifier.width(8.dp))
-            }
+            if (leading != null) Spacer(modifier = Modifier.width(8.dp))
 
             Text(
                 text = title,
