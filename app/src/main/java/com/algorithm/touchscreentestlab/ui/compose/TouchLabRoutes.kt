@@ -54,22 +54,19 @@ fun TouchLabApp() {
         }
 
         composable(TouchLabRoutes.MultiTouch) {
-            PlaceholderScreen(
-                title = "Multi-Touch Test",
+            MultiTouchTestScreen(
                 onBack = { navController.popBackStack() }
             )
         }
 
         composable(TouchLabRoutes.DrawTest) {
-            PlaceholderScreen(
-                title = "Draw Test",
+            DrawTestScreen(
                 onBack = { navController.popBackStack() }
             )
         }
 
         composable(TouchLabRoutes.EdgeTest) {
-            PlaceholderScreen(
-                title = "Edge Test",
+            EdgeTestScreen(
                 onBack = { navController.popBackStack() }
             )
         }
