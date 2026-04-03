@@ -1,0 +1,88 @@
+<resources>
+    <string name="app_name">Диагностика экрана и касаний</string>
+
+    <!-- Home -->
+    <string name="home_title">TouchLab</string>
+    <string name="home_subtitle">Диагностика экрана и касаний</string>
+    <string name="hero_title">Проверьте экран за секунды</string>
+    <string name="hero_subtitle">Проверьте мёртвые зоны, мультитач и точность касаний.</string>
+
+    <string name="quick_test">Быстрый тест</string>
+    <string name="quick_test_subtitle">Запустить полную проверку экрана</string>
+
+    <string name="multi_touch_test">Мультитач тест</string>
+    <string name="multi_touch_test_subtitle">Проверить несколько точек касания</string>
+
+    <string name="draw_test">Тест рисования</string>
+    <string name="draw_test_subtitle">Проверить точность рисования касанием</string>
+
+    <string name="edge_test">Тест краёв</string>
+    <string name="edge_test_subtitle">Проверить края экрана</string>
+
+    <string name="device_overview">Информация об устройстве</string>
+    <string name="max_touches_label">Макс. касаний:</string>
+    <string name="max_touches_value">10 точек</string>
+    <string name="last_test_label">Последний тест:</string>
+    <string name="last_test_value">Ещё не запускался</string>
+    <string name="screen_size_label">Размер экрана:</string>
+    <string name="screen_size_value">6,5 дюйма</string>
+    <string name="mode_label">Режим:</string>
+    <string name="mode_value">Офлайн</string>
+
+    <!-- Common -->
+    <string name="status_passed">Статус: Пройдено</string>
+    <string name="status_in_progress">Статус: Выполняется</string>
+    <string name="status_waiting">Статус: Ожидание</string>
+    <string name="reset">Сброс</string>
+    <string name="done">Готово</string>
+    <string name="finish">Завершить</string>
+    <string name="percent_format">%1$d%%</string>
+
+    <!-- Quick Test -->
+    <string name="quick_test_screen_title">Быстрый тест</string>
+    <string name="quick_test_screen_subtitle">Быстрый поиск мёртвых зон</string>
+    <string name="quick_test_success">Отлично! Весь экран проверен.</string>
+    <string name="quick_test_instruction">Коснитесь всех зон на экране.</string>
+    <string name="quick_test_hint">Каждая затронутая область будет подсвечиваться. Постарайтесь покрыть все блоки.</string>
+    <string name="quick_test_start_hint">Коснитесь здесь</string>
+    <string name="quick_test_start_subhint">Покройте всю область экрана</string>
+    <string name="quick_test_cells_covered">%1$d / %2$d ячеек покрыто</string>
+
+    <!-- Multi-Touch -->
+    <string name="multi_touch_screen_title">Мультитач тест</string>
+    <string name="multi_touch_screen_subtitle">Проверка нескольких пальцев одновременно</string>
+    <string name="multi_touch_success">Отлично! Мультитач работает.</string>
+    <string name="multi_touch_instruction">Положите несколько пальцев на экран.</string>
+    <string name="multi_touch_hint">Попробуйте касаться экрана несколькими пальцами одновременно.</string>
+    <string name="multi_touch_start_hint">Коснитесь здесь</string>
+    <string name="multi_touch_start_subhint">Используйте несколько пальцев одновременно</string>
+    <string name="multi_touch_current_highest">Сейчас: %1$d • Максимум: %2$d</string>
+    <string name="multi_touch_target">Цель: %1$d пальцев</string>
+    <string name="multi_touch_highest_progress">Максимум: %1$d / %2$d</string>
+    <string name="multi_touch_finger_singular">палец</string>
+    <string name="multi_touch_finger_plural">пальцев</string>
+
+    <!-- Draw Test -->
+    <string name="draw_screen_title">Тест рисования</string>
+    <string name="draw_screen_subtitle">Проверка точности рисования касанием</string>
+    <string name="draw_success">Отлично! Рисование касанием обнаружено.</string>
+    <string name="draw_instruction">Рисуйте на экране, чтобы проверить отслеживание касаний.</string>
+    <string name="draw_hint">Попробуйте медленные линии, быстрые линии, кривые и углы.</string>
+    <string name="draw_start_hint">Начните рисовать</string>
+    <string name="draw_start_subhint">Линии должны плавно следовать за вашим пальцем</string>
+    <string name="draw_strokes_points">Линии: %1$d • Точки: %2$d</string>
+    <string name="draw_strokes_only">Линии: %1$d</string>
+
+    <!-- Edge Test -->
+    <string name="edge_screen_title">Тест краёв</string>
+    <string name="edge_screen_subtitle">Проверка отклика по краям</string>
+    <string name="edge_success">Отлично! Края экрана реагируют.</string>
+    <string name="edge_instruction">Проведите пальцем по всем краям экрана.</string>
+    <string name="edge_hint">Проведите вдоль верхней, правой, нижней и левой границы.</string>
+    <string name="edge_start_hint">Проверьте края</string>
+    <string name="edge_start_subhint">Покройте всю границу экрана</string>
+    <string name="edge_zones_covered">%1$d / %2$d крайних зон покрыто</string>
+
+    <!-- Shared dynamic labels -->
+    <string name="active_fingers">Активных пальцев: %1$d</string>
+</resources>

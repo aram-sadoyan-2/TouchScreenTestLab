@@ -1,0 +1,88 @@
+<resources>
+    <string name="app_name">تشخيص الشاشة واللمس</string>
+
+    <!-- Home -->
+    <string name="home_title">TouchLab</string>
+    <string name="home_subtitle">تشخيص الشاشة واللمس</string>
+    <string name="hero_title">اختبر شاشتك خلال ثوانٍ</string>
+    <string name="hero_subtitle">تحقق من المناطق الميتة، واللمس المتعدد، ودقة اللمس.</string>
+
+    <string name="quick_test">اختبار سريع</string>
+    <string name="quick_test_subtitle">تشغيل فحص كامل للشاشة</string>
+
+    <string name="multi_touch_test">اختبار اللمس المتعدد</string>
+    <string name="multi_touch_test_subtitle">التحقق من عدة نقاط لمس</string>
+
+    <string name="draw_test">اختبار الرسم</string>
+    <string name="draw_test_subtitle">اختبار دقة الرسم باللمس</string>
+
+    <string name="edge_test">اختبار الحواف</string>
+    <string name="edge_test_subtitle">فحص حواف الشاشة</string>
+
+    <string name="device_overview">نظرة عامة على الجهاز</string>
+    <string name="max_touches_label">الحد الأقصى للمسات:</string>
+    <string name="max_touches_value">10 نقاط</string>
+    <string name="last_test_label">آخر اختبار:</string>
+    <string name="last_test_value">لم يتم التشغيل بعد</string>
+    <string name="screen_size_label">حجم الشاشة:</string>
+    <string name="screen_size_value">6.5 بوصة</string>
+    <string name="mode_label">الوضع:</string>
+    <string name="mode_value">غير متصل</string>
+
+    <!-- Common -->
+    <string name="status_passed">الحالة: تم الاجتياز</string>
+    <string name="status_in_progress">الحالة: جارٍ التنفيذ</string>
+    <string name="status_waiting">الحالة: انتظار</string>
+    <string name="reset">إعادة تعيين</string>
+    <string name="done">تم</string>
+    <string name="finish">إنهاء</string>
+    <string name="percent_format">%1$d%%</string>
+
+    <!-- Quick Test -->
+    <string name="quick_test_screen_title">اختبار سريع</string>
+    <string name="quick_test_screen_subtitle">اعثر على المناطق الميتة بسرعة</string>
+    <string name="quick_test_success">رائع! تم فحص الشاشة بالكامل.</string>
+    <string name="quick_test_instruction">المس جميع المناطق على الشاشة.</string>
+    <string name="quick_test_hint">ستضيء كل منطقة تلمسها. حاول تغطية جميع المربعات.</string>
+    <string name="quick_test_start_hint">المس هنا</string>
+    <string name="quick_test_start_subhint">غطِّ كامل مساحة الشاشة</string>
+    <string name="quick_test_cells_covered">تمت تغطية %1$d / %2$d خلية</string>
+
+    <!-- Multi-Touch -->
+    <string name="multi_touch_screen_title">اختبار اللمس المتعدد</string>
+    <string name="multi_touch_screen_subtitle">تحقق من عدة أصابع في الوقت نفسه</string>
+    <string name="multi_touch_success">رائع! اللمس المتعدد يعمل.</string>
+    <string name="multi_touch_instruction">ضع عدة أصابع على الشاشة.</string>
+    <string name="multi_touch_hint">حاول لمس الشاشة بعدة أصابع في الوقت نفسه.</string>
+    <string name="multi_touch_start_hint">المس هنا</string>
+    <string name="multi_touch_start_subhint">استخدم عدة أصابع في الوقت نفسه</string>
+    <string name="multi_touch_current_highest">الحالي: %1$d • الأعلى: %2$d</string>
+    <string name="multi_touch_target">الهدف: %1$d أصابع</string>
+    <string name="multi_touch_highest_progress">الأعلى: %1$d / %2$d</string>
+    <string name="multi_touch_finger_singular">إصبع</string>
+    <string name="multi_touch_finger_plural">أصابع</string>
+
+    <!-- Draw Test -->
+    <string name="draw_screen_title">اختبار الرسم</string>
+    <string name="draw_screen_subtitle">تحقق من دقة الرسم باللمس</string>
+    <string name="draw_success">ممتاز! تم اكتشاف الرسم باللمس.</string>
+    <string name="draw_instruction">ارسم على الشاشة لاختبار تتبع اللمس.</string>
+    <string name="draw_hint">جرّب خطوطًا بطيئة وسريعة ومنحنيات وزوايا.</string>
+    <string name="draw_start_hint">ابدأ الرسم</string>
+    <string name="draw_start_subhint">يجب أن تتبع الخطوط إصبعك بسلاسة</string>
+    <string name="draw_strokes_points">الخطوط: %1$d • النقاط: %2$d</string>
+    <string name="draw_strokes_only">الخطوط: %1$d</string>
+
+    <!-- Edge Test -->
+    <string name="edge_screen_title">اختبار الحواف</string>
+    <string name="edge_screen_subtitle">تحقق من استجابة الحواف</string>
+    <string name="edge_success">رائع! حواف الشاشة تستجيب.</string>
+    <string name="edge_instruction">مرر إصبعك على جميع حواف الشاشة.</string>
+    <string name="edge_hint">تحرك على طول الحافة العلوية واليمنى والسفلية واليسرى.</string>
+    <string name="edge_start_hint">تتبع الحواف</string>
+    <string name="edge_start_subhint">غطِّ كامل إطار الشاشة</string>
+    <string name="edge_zones_covered">تمت تغطية %1$d / %2$d منطقة حافة</string>
+
+    <!-- Shared dynamic labels -->
+    <string name="active_fingers">الأصابع النشطة: %1$d</string>
+</resources>

@@ -1,0 +1,88 @@
+<resources>
+    <string name="app_name">屏幕与触控诊断</string>
+
+    <!-- Home -->
+    <string name="home_title">TouchLab</string>
+    <string name="home_subtitle">屏幕与触控诊断</string>
+    <string name="hero_title">几秒内测试你的屏幕</string>
+    <string name="hero_subtitle">检查坏点区域、多点触控和触控精度。</string>
+
+    <string name="quick_test">快速测试</string>
+    <string name="quick_test_subtitle">开始完整屏幕检查</string>
+
+    <string name="multi_touch_test">多点触控测试</string>
+    <string name="multi_touch_test_subtitle">检查多个触控点</string>
+
+    <string name="draw_test">绘图测试</string>
+    <string name="draw_test_subtitle">测试触控绘图精度</string>
+
+    <string name="edge_test">边缘测试</string>
+    <string name="edge_test_subtitle">检查屏幕边缘</string>
+
+    <string name="device_overview">设备概览</string>
+    <string name="max_touches_label">最大触控数:</string>
+    <string name="max_touches_value">10 点</string>
+    <string name="last_test_label">上次测试:</string>
+    <string name="last_test_value">尚未运行</string>
+    <string name="screen_size_label">屏幕尺寸:</string>
+    <string name="screen_size_value">6.5 英寸</string>
+    <string name="mode_label">模式:</string>
+    <string name="mode_value">离线</string>
+
+    <!-- Common -->
+    <string name="status_passed">状态: 已通过</string>
+    <string name="status_in_progress">状态: 进行中</string>
+    <string name="status_waiting">状态: 等待中</string>
+    <string name="reset">重置</string>
+    <string name="done">完成</string>
+    <string name="finish">结束</string>
+    <string name="percent_format">%1$d%%</string>
+
+    <!-- Quick Test -->
+    <string name="quick_test_screen_title">快速测试</string>
+    <string name="quick_test_screen_subtitle">快速查找坏点区域</string>
+    <string name="quick_test_success">太好了！整个屏幕已检查完成。</string>
+    <string name="quick_test_instruction">请触摸屏幕上的所有区域。</string>
+    <string name="quick_test_hint">被触摸的区域会点亮。请尽量覆盖所有方块。</string>
+    <string name="quick_test_start_hint">点击这里</string>
+    <string name="quick_test_start_subhint">覆盖整个屏幕区域</string>
+    <string name="quick_test_cells_covered">已覆盖 %1$d / %2$d 个单元格</string>
+
+    <!-- Multi-Touch -->
+    <string name="multi_touch_screen_title">多点触控测试</string>
+    <string name="multi_touch_screen_subtitle">同时检查多根手指</string>
+    <string name="multi_touch_success">太好了！多点触控正常工作。</string>
+    <string name="multi_touch_instruction">将多根手指放在屏幕上。</string>
+    <string name="multi_touch_hint">尝试同时用多根手指触摸屏幕。</string>
+    <string name="multi_touch_start_hint">点击这里</string>
+    <string name="multi_touch_start_subhint">同时使用多根手指</string>
+    <string name="multi_touch_current_highest">当前: %1$d • 最高: %2$d</string>
+    <string name="multi_touch_target">目标: %1$d 根手指</string>
+    <string name="multi_touch_highest_progress">最高: %1$d / %2$d</string>
+    <string name="multi_touch_finger_singular">手指</string>
+    <string name="multi_touch_finger_plural">手指</string>
+
+    <!-- Draw Test -->
+    <string name="draw_screen_title">绘图测试</string>
+    <string name="draw_screen_subtitle">检查触控绘图精度</string>
+    <string name="draw_success">很好！已检测到触控绘图。</string>
+    <string name="draw_instruction">在屏幕上绘制以测试触控跟踪。</string>
+    <string name="draw_hint">尝试慢线、快线、曲线和拐角。</string>
+    <string name="draw_start_hint">开始绘制</string>
+    <string name="draw_start_subhint">线条应平滑跟随你的手指</string>
+    <string name="draw_strokes_points">笔画: %1$d • 点: %2$d</string>
+    <string name="draw_strokes_only">笔画: %1$d</string>
+
+    <!-- Edge Test -->
+    <string name="edge_screen_title">边缘测试</string>
+    <string name="edge_screen_subtitle">检查边缘响应</string>
+    <string name="edge_success">太好了！屏幕边缘有响应。</string>
+    <string name="edge_instruction">沿着屏幕所有边缘滑动手指。</string>
+    <string name="edge_hint">沿上边、右边、下边和左边移动。</string>
+    <string name="edge_start_hint">描边缘</string>
+    <string name="edge_start_subhint">覆盖整个屏幕边框</string>
+    <string name="edge_zones_covered">已覆盖 %1$d / %2$d 个边缘区域</string>
+
+    <!-- Shared dynamic labels -->
+    <string name="active_fingers">活动手指: %1$d</string>
+</resources>

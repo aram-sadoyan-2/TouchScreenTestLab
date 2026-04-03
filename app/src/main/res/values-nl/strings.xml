@@ -1,0 +1,88 @@
+<resources>
+    <string name="app_name">Scherm- en aanraakdiagnose</string>
+
+    <!-- Home -->
+    <string name="home_title">TouchLab</string>
+    <string name="home_subtitle">Scherm- en aanraakdiagnose</string>
+    <string name="hero_title">Test je scherm in seconden</string>
+    <string name="hero_subtitle">Controleer dode zones, multitouch en aanraaknauwkeurigheid.</string>
+
+    <string name="quick_test">Snelle test</string>
+    <string name="quick_test_subtitle">Volledige schermcontrole starten</string>
+
+    <string name="multi_touch_test">Multitouch-test</string>
+    <string name="multi_touch_test_subtitle">Meerdere aanraakpunten controleren</string>
+
+    <string name="draw_test">Tekentest</string>
+    <string name="draw_test_subtitle">Controleer de nauwkeurigheid van tekenen met aanraking</string>
+
+    <string name="edge_test">Randtest</string>
+    <string name="edge_test_subtitle">Controleer de schermranden</string>
+
+    <string name="device_overview">Apparaatoverzicht</string>
+    <string name="max_touches_label">Max. aanrakingen:</string>
+    <string name="max_touches_value">10 punten</string>
+    <string name="last_test_label">Laatste test:</string>
+    <string name="last_test_value">Nog niet uitgevoerd</string>
+    <string name="screen_size_label">Schermgrootte:</string>
+    <string name="screen_size_value">6,5 inch</string>
+    <string name="mode_label">Modus:</string>
+    <string name="mode_value">Offline</string>
+
+    <!-- Common -->
+    <string name="status_passed">Status: Geslaagd</string>
+    <string name="status_in_progress">Status: Bezig</string>
+    <string name="status_waiting">Status: Wachten</string>
+    <string name="reset">Resetten</string>
+    <string name="done">Gereed</string>
+    <string name="finish">Voltooien</string>
+    <string name="percent_format">%1$d%%</string>
+
+    <!-- Quick Test -->
+    <string name="quick_test_screen_title">Snelle test</string>
+    <string name="quick_test_screen_subtitle">Vind dode zones snel</string>
+    <string name="quick_test_success">Geweldig! Het hele scherm is gecontroleerd.</string>
+    <string name="quick_test_instruction">Raak alle zones op het scherm aan.</string>
+    <string name="quick_test_hint">Elke aangeraakte zone licht op. Probeer alle blokken te bedekken.</string>
+    <string name="quick_test_start_hint">Raak hier aan</string>
+    <string name="quick_test_start_subhint">Bedek het hele schermoppervlak</string>
+    <string name="quick_test_cells_covered">%1$d / %2$d cellen bedekt</string>
+
+    <!-- Multi-Touch -->
+    <string name="multi_touch_screen_title">Multitouch-test</string>
+    <string name="multi_touch_screen_subtitle">Controleer meerdere vingers tegelijk</string>
+    <string name="multi_touch_success">Geweldig! Multitouch werkt.</string>
+    <string name="multi_touch_instruction">Plaats meerdere vingers op het scherm.</string>
+    <string name="multi_touch_hint">Probeer het scherm met meerdere vingers tegelijk aan te raken.</string>
+    <string name="multi_touch_start_hint">Raak hier aan</string>
+    <string name="multi_touch_start_subhint">Gebruik meerdere vingers tegelijk</string>
+    <string name="multi_touch_current_highest">Huidig: %1$d • Hoogste: %2$d</string>
+    <string name="multi_touch_target">Doel: %1$d vingers</string>
+    <string name="multi_touch_highest_progress">Hoogste: %1$d / %2$d</string>
+    <string name="multi_touch_finger_singular">vinger</string>
+    <string name="multi_touch_finger_plural">vingers</string>
+
+    <!-- Draw Test -->
+    <string name="draw_screen_title">Tekentest</string>
+    <string name="draw_screen_subtitle">Controleer de nauwkeurigheid van tekenen met aanraking</string>
+    <string name="draw_success">Mooi! Tekenen met aanraking is gedetecteerd.</string>
+    <string name="draw_instruction">Teken op het scherm om de aanraakregistratie te testen.</string>
+    <string name="draw_hint">Probeer langzame lijnen, snelle lijnen, bochten en hoeken.</string>
+    <string name="draw_start_hint">Begin met tekenen</string>
+    <string name="draw_start_subhint">Lijnen moeten je vinger soepel volgen</string>
+    <string name="draw_strokes_points">Strepen: %1$d • Punten: %2$d</string>
+    <string name="draw_strokes_only">Strepen: %1$d</string>
+
+    <!-- Edge Test -->
+    <string name="edge_screen_title">Randtest</string>
+    <string name="edge_screen_subtitle">Controleer de reactie van de randen</string>
+    <string name="edge_success">Geweldig! De schermranden reageren.</string>
+    <string name="edge_instruction">Beweeg je vinger langs alle schermranden.</string>
+    <string name="edge_hint">Beweeg langs de boven-, rechter-, onder- en linkerrand.</string>
+    <string name="edge_start_hint">Volg de randen</string>
+    <string name="edge_start_subhint">Bedek de volledige schermrand</string>
+    <string name="edge_zones_covered">%1$d / %2$d randzones bedekt</string>
+
+    <!-- Shared dynamic labels -->
+    <string name="active_fingers">Actieve vingers: %1$d</string>
+</resources>

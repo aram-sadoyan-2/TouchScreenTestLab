@@ -1,0 +1,88 @@
+<resources>
+    <string name="app_name">Bildschirm- und Berührungsdiagnose</string>
+
+    <!-- Home -->
+    <string name="home_title">TouchLab</string>
+    <string name="home_subtitle">Bildschirm- und Berührungsdiagnose</string>
+    <string name="hero_title">Teste deinen Bildschirm in Sekunden</string>
+    <string name="hero_subtitle">Prüfe tote Zonen, Multitouch und die Berührungsgenauigkeit.</string>
+
+    <string name="quick_test">Schnelltest</string>
+    <string name="quick_test_subtitle">Vollständige Bildschirmprüfung starten</string>
+
+    <string name="multi_touch_test">Multitouch-Test</string>
+    <string name="multi_touch_test_subtitle">Mehrere Berührungspunkte prüfen</string>
+
+    <string name="draw_test">Zeichentest</string>
+    <string name="draw_test_subtitle">Genauigkeit beim Zeichnen per Berührung testen</string>
+
+    <string name="edge_test">Randtest</string>
+    <string name="edge_test_subtitle">Bildschirmränder prüfen</string>
+
+    <string name="device_overview">Geräteübersicht</string>
+    <string name="max_touches_label">Max. Berührungen:</string>
+    <string name="max_touches_value">10 Punkte</string>
+    <string name="last_test_label">Letzter Test:</string>
+    <string name="last_test_value">Noch nicht ausgeführt</string>
+    <string name="screen_size_label">Bildschirmgröße:</string>
+    <string name="screen_size_value">6,5 Zoll</string>
+    <string name="mode_label">Modus:</string>
+    <string name="mode_value">Offline</string>
+
+    <!-- Common -->
+    <string name="status_passed">Status: Bestanden</string>
+    <string name="status_in_progress">Status: Läuft</string>
+    <string name="status_waiting">Status: Wartet</string>
+    <string name="reset">Zurücksetzen</string>
+    <string name="done">Fertig</string>
+    <string name="finish">Beenden</string>
+    <string name="percent_format">%1$d%%</string>
+
+    <!-- Quick Test -->
+    <string name="quick_test_screen_title">Schnelltest</string>
+    <string name="quick_test_screen_subtitle">Tote Zonen schnell finden</string>
+    <string name="quick_test_success">Super! Der gesamte Bildschirm wurde geprüft.</string>
+    <string name="quick_test_instruction">Berühre alle Bereiche auf dem Bildschirm.</string>
+    <string name="quick_test_hint">Jeder berührte Bereich wird hervorgehoben. Versuche, alle Blöcke abzudecken.</string>
+    <string name="quick_test_start_hint">Hier berühren</string>
+    <string name="quick_test_start_subhint">Den gesamten Bildschirmbereich abdecken</string>
+    <string name="quick_test_cells_covered">%1$d / %2$d Zellen abgedeckt</string>
+
+    <!-- Multi-Touch -->
+    <string name="multi_touch_screen_title">Multitouch-Test</string>
+    <string name="multi_touch_screen_subtitle">Mehrere Finger gleichzeitig prüfen</string>
+    <string name="multi_touch_success">Super! Multitouch funktioniert.</string>
+    <string name="multi_touch_instruction">Lege mehrere Finger auf den Bildschirm.</string>
+    <string name="multi_touch_hint">Versuche, den Bildschirm gleichzeitig mit mehreren Fingern zu berühren.</string>
+    <string name="multi_touch_start_hint">Hier berühren</string>
+    <string name="multi_touch_start_subhint">Mehrere Finger gleichzeitig verwenden</string>
+    <string name="multi_touch_current_highest">Aktuell: %1$d • Höchster Wert: %2$d</string>
+    <string name="multi_touch_target">Ziel: %1$d Finger</string>
+    <string name="multi_touch_highest_progress">Höchster Wert: %1$d / %2$d</string>
+    <string name="multi_touch_finger_singular">Finger</string>
+    <string name="multi_touch_finger_plural">Finger</string>
+
+    <!-- Draw Test -->
+    <string name="draw_screen_title">Zeichentest</string>
+    <string name="draw_screen_subtitle">Genauigkeit beim Zeichnen per Berührung prüfen</string>
+    <string name="draw_success">Super! Berührungszeichnen wurde erkannt.</string>
+    <string name="draw_instruction">Zeichne auf dem Bildschirm, um die Berührungsverfolgung zu testen.</string>
+    <string name="draw_hint">Probiere langsame Linien, schnelle Linien, Kurven und Ecken aus.</string>
+    <string name="draw_start_hint">Beginne zu zeichnen</string>
+    <string name="draw_start_subhint">Die Linien sollten deinem Finger flüssig folgen</string>
+    <string name="draw_strokes_points">Striche: %1$d • Punkte: %2$d</string>
+    <string name="draw_strokes_only">Striche: %1$d</string>
+
+    <!-- Edge Test -->
+    <string name="edge_screen_title">Randtest</string>
+    <string name="edge_screen_subtitle">Reaktionsfähigkeit der Ränder prüfen</string>
+    <string name="edge_success">Super! Die Bildschirmränder reagieren.</string>
+    <string name="edge_instruction">Fahre mit deinem Finger an allen Bildschirmrändern entlang.</string>
+    <string name="edge_hint">Bewege dich entlang der oberen, rechten, unteren und linken Kante.</string>
+    <string name="edge_start_hint">Ränder nachfahren</string>
+    <string name="edge_start_subhint">Den gesamten Bildschirmrand abdecken</string>
+    <string name="edge_zones_covered">%1$d / %2$d Randzonen abgedeckt</string>
+
+    <!-- Shared dynamic labels -->
+    <string name="active_fingers">Aktive Finger: %1$d</string>
+</resources>

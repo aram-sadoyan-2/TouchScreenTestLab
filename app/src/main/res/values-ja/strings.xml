@@ -1,0 +1,88 @@
+<resources>
+    <string name="app_name">画面とタッチの診断</string>
+
+    <!-- Home -->
+    <string name="home_title">TouchLab</string>
+    <string name="home_subtitle">画面とタッチの診断</string>
+    <string name="hero_title">数秒で画面をテスト</string>
+    <string name="hero_subtitle">デッドゾーン、マルチタッチ、タッチ精度を確認します。</string>
+
+    <string name="quick_test">クイックテスト</string>
+    <string name="quick_test_subtitle">画面全体のチェックを開始</string>
+
+    <string name="multi_touch_test">マルチタッチテスト</string>
+    <string name="multi_touch_test_subtitle">複数のタッチポイントを確認</string>
+
+    <string name="draw_test">描画テスト</string>
+    <string name="draw_test_subtitle">タッチ描画の精度を確認</string>
+
+    <string name="edge_test">端のテスト</string>
+    <string name="edge_test_subtitle">画面の端を確認</string>
+
+    <string name="device_overview">デバイス概要</string>
+    <string name="max_touches_label">最大タッチ数:</string>
+    <string name="max_touches_value">10ポイント</string>
+    <string name="last_test_label">前回のテスト:</string>
+    <string name="last_test_value">まだ実行されていません</string>
+    <string name="screen_size_label">画面サイズ:</string>
+    <string name="screen_size_value">6.5インチ</string>
+    <string name="mode_label">モード:</string>
+    <string name="mode_value">オフライン</string>
+
+    <!-- Common -->
+    <string name="status_passed">状態: 合格</string>
+    <string name="status_in_progress">状態: 進行中</string>
+    <string name="status_waiting">状態: 待機中</string>
+    <string name="reset">リセット</string>
+    <string name="done">完了</string>
+    <string name="finish">終了</string>
+    <string name="percent_format">%1$d%%</string>
+
+    <!-- Quick Test -->
+    <string name="quick_test_screen_title">クイックテスト</string>
+    <string name="quick_test_screen_subtitle">デッドゾーンをすばやく発見</string>
+    <string name="quick_test_success">すばらしいです！画面全体を確認しました。</string>
+    <string name="quick_test_instruction">画面上のすべての領域に触れてください。</string>
+    <string name="quick_test_hint">触れた領域は点灯します。すべてのブロックをカバーしてください。</string>
+    <string name="quick_test_start_hint">ここをタッチ</string>
+    <string name="quick_test_start_subhint">画面全体をカバーしてください</string>
+    <string name="quick_test_cells_covered">%1$d / %2$d セルをカバー</string>
+
+    <!-- Multi-Touch -->
+    <string name="multi_touch_screen_title">マルチタッチテスト</string>
+    <string name="multi_touch_screen_subtitle">複数の指を同時に確認</string>
+    <string name="multi_touch_success">すばらしいです！マルチタッチは正常です。</string>
+    <string name="multi_touch_instruction">画面に複数の指を置いてください。</string>
+    <string name="multi_touch_hint">複数の指で同時に画面に触れてみてください。</string>
+    <string name="multi_touch_start_hint">ここをタッチ</string>
+    <string name="multi_touch_start_subhint">複数の指を同時に使ってください</string>
+    <string name="multi_touch_current_highest">現在: %1$d • 最大: %2$d</string>
+    <string name="multi_touch_target">目標: %1$d本の指</string>
+    <string name="multi_touch_highest_progress">最大: %1$d / %2$d</string>
+    <string name="multi_touch_finger_singular">指</string>
+    <string name="multi_touch_finger_plural">指</string>
+
+    <!-- Draw Test -->
+    <string name="draw_screen_title">描画テスト</string>
+    <string name="draw_screen_subtitle">タッチ描画の精度を確認</string>
+    <string name="draw_success">良好です！タッチ描画が検出されました。</string>
+    <string name="draw_instruction">タッチ追跡を確認するために画面に描いてください。</string>
+    <string name="draw_hint">ゆっくりした線、速い線、曲線、角を試してください。</string>
+    <string name="draw_start_hint">描き始める</string>
+    <string name="draw_start_subhint">線は指に滑らかに追従する必要があります</string>
+    <string name="draw_strokes_points">線: %1$d • 点: %2$d</string>
+    <string name="draw_strokes_only">線: %1$d</string>
+
+    <!-- Edge Test -->
+    <string name="edge_screen_title">端のテスト</string>
+    <string name="edge_screen_subtitle">端の反応を確認</string>
+    <string name="edge_success">すばらしいです！画面の端は反応しています。</string>
+    <string name="edge_instruction">画面のすべての端に沿って指を動かしてください。</string>
+    <string name="edge_hint">上、右、下、左の端に沿って動かしてください。</string>
+    <string name="edge_start_hint">端をなぞる</string>
+    <string name="edge_start_subhint">画面の枠全体をカバーしてください</string>
+    <string name="edge_zones_covered">%1$d / %2$d 端のゾーンをカバー</string>
+
+    <!-- Shared dynamic labels -->
+    <string name="active_fingers">アクティブな指: %1$d</string>
+</resources>

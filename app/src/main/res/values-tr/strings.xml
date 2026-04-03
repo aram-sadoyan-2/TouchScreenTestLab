@@ -1,0 +1,88 @@
+<resources>
+    <string name="app_name">Ekran ve Dokunmatik Tanılama</string>
+
+    <!-- Home -->
+    <string name="home_title">TouchLab</string>
+    <string name="home_subtitle">Ekran ve Dokunmatik Tanılama</string>
+    <string name="hero_title">Ekranını saniyeler içinde test et</string>
+    <string name="hero_subtitle">Ölü bölgeleri, çoklu dokunmayı ve dokunma hassasiyetini kontrol et.</string>
+
+    <string name="quick_test">Hızlı Test</string>
+    <string name="quick_test_subtitle">Tam ekran kontrolü başlat</string>
+
+    <string name="multi_touch_test">Çoklu Dokunma Testi</string>
+    <string name="multi_touch_test_subtitle">Birden fazla dokunma noktasını kontrol et</string>
+
+    <string name="draw_test">Çizim Testi</string>
+    <string name="draw_test_subtitle">Dokunarak çizim hassasiyetini test et</string>
+
+    <string name="edge_test">Kenar Testi</string>
+    <string name="edge_test_subtitle">Ekran kenarlarını incele</string>
+
+    <string name="device_overview">Cihaz Özeti</string>
+    <string name="max_touches_label">Maks. dokunuş:</string>
+    <string name="max_touches_value">10 nokta</string>
+    <string name="last_test_label">Son test:</string>
+    <string name="last_test_value">Henüz çalıştırılmadı</string>
+    <string name="screen_size_label">Ekran boyutu:</string>
+    <string name="screen_size_value">6,5 inç</string>
+    <string name="mode_label">Mod:</string>
+    <string name="mode_value">Çevrimdışı</string>
+
+    <!-- Common -->
+    <string name="status_passed">Durum: Geçti</string>
+    <string name="status_in_progress">Durum: Devam ediyor</string>
+    <string name="status_waiting">Durum: Bekleniyor</string>
+    <string name="reset">Sıfırla</string>
+    <string name="done">Tamam</string>
+    <string name="finish">Bitir</string>
+    <string name="percent_format">%1$d%%</string>
+
+    <!-- Quick Test -->
+    <string name="quick_test_screen_title">Hızlı Test</string>
+    <string name="quick_test_screen_subtitle">Ölü bölgeleri hızlıca bul</string>
+    <string name="quick_test_success">Harika! Tüm ekran kontrol edildi.</string>
+    <string name="quick_test_instruction">Ekrandaki tüm bölgelere dokun.</string>
+    <string name="quick_test_hint">Dokunulan her alan aydınlanır. Tüm blokları kapatmaya çalış.</string>
+    <string name="quick_test_start_hint">Buraya dokun</string>
+    <string name="quick_test_start_subhint">Ekranın tüm alanını kapla</string>
+    <string name="quick_test_cells_covered">%1$d / %2$d hücre kapsandı</string>
+
+    <!-- Multi-Touch -->
+    <string name="multi_touch_screen_title">Çoklu Dokunma Testi</string>
+    <string name="multi_touch_screen_subtitle">Aynı anda birden fazla parmağı kontrol et</string>
+    <string name="multi_touch_success">Harika! Çoklu dokunma çalışıyor.</string>
+    <string name="multi_touch_instruction">Ekrana birkaç parmağını koy.</string>
+    <string name="multi_touch_hint">Ekrana aynı anda birden fazla parmakla dokunmayı dene.</string>
+    <string name="multi_touch_start_hint">Buraya dokun</string>
+    <string name="multi_touch_start_subhint">Aynı anda birden fazla parmak kullan</string>
+    <string name="multi_touch_current_highest">Şu an: %1$d • En yüksek: %2$d</string>
+    <string name="multi_touch_target">Hedef: %1$d parmak</string>
+    <string name="multi_touch_highest_progress">En yüksek: %1$d / %2$d</string>
+    <string name="multi_touch_finger_singular">parmak</string>
+    <string name="multi_touch_finger_plural">parmak</string>
+
+    <!-- Draw Test -->
+    <string name="draw_screen_title">Çizim Testi</string>
+    <string name="draw_screen_subtitle">Dokunarak çizim hassasiyetini kontrol et</string>
+    <string name="draw_success">Güzel! Dokunarak çizim algılandı.</string>
+    <string name="draw_instruction">Dokunma takibini test etmek için ekranda çizim yap.</string>
+    <string name="draw_hint">Yavaş çizgiler, hızlı çizgiler, eğriler ve köşeler dene.</string>
+    <string name="draw_start_hint">Çizmeye başla</string>
+    <string name="draw_start_subhint">Çizgiler parmağını akıcı şekilde takip etmeli</string>
+    <string name="draw_strokes_points">Çizgiler: %1$d • Noktalar: %2$d</string>
+    <string name="draw_strokes_only">Çizgiler: %1$d</string>
+
+    <!-- Edge Test -->
+    <string name="edge_screen_title">Kenar Testi</string>
+    <string name="edge_screen_subtitle">Kenar tepkisini kontrol et</string>
+    <string name="edge_success">Harika! Ekran kenarları tepki veriyor.</string>
+    <string name="edge_instruction">Parmağını ekranın tüm kenarlarında gezdir.</string>
+    <string name="edge_hint">Üst, sağ, alt ve sol kenar boyunca hareket et.</string>
+    <string name="edge_start_hint">Kenarları izle</string>
+    <string name="edge_start_subhint">Ekranın tüm çerçevesini kapla</string>
+    <string name="edge_zones_covered">%1$d / %2$d kenar bölgesi kapsandı</string>
+
+    <!-- Shared dynamic labels -->
+    <string name="active_fingers">Aktif parmaklar: %1$d</string>
+</resources>

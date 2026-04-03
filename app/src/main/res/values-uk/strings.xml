@@ -1,0 +1,88 @@
+<resources>
+    <string name="app_name">Діагностика екрана та дотику</string>
+
+    <!-- Home -->
+    <string name="home_title">TouchLab</string>
+    <string name="home_subtitle">Діагностика екрана та дотику</string>
+    <string name="hero_title">Перевірте свій екран за секунди</string>
+    <string name="hero_subtitle">Перевірте мертві зони, мультитач і точність дотику.</string>
+
+    <string name="quick_test">Швидкий тест</string>
+    <string name="quick_test_subtitle">Запустити повну перевірку екрана</string>
+
+    <string name="multi_touch_test">Мультитач тест</string>
+    <string name="multi_touch_test_subtitle">Перевірити кілька точок дотику</string>
+
+    <string name="draw_test">Тест малювання</string>
+    <string name="draw_test_subtitle">Перевірити точність малювання дотиком</string>
+
+    <string name="edge_test">Тест країв</string>
+    <string name="edge_test_subtitle">Перевірити краї екрана</string>
+
+    <string name="device_overview">Огляд пристрою</string>
+    <string name="max_touches_label">Макс. дотиків:</string>
+    <string name="max_touches_value">10 точок</string>
+    <string name="last_test_label">Останній тест:</string>
+    <string name="last_test_value">Ще не запускали</string>
+    <string name="screen_size_label">Розмір екрана:</string>
+    <string name="screen_size_value">6,5 дюйма</string>
+    <string name="mode_label">Режим:</string>
+    <string name="mode_value">Офлайн</string>
+
+    <!-- Common -->
+    <string name="status_passed">Статус: Пройдено</string>
+    <string name="status_in_progress">Статус: Виконується</string>
+    <string name="status_waiting">Статус: Очікування</string>
+    <string name="reset">Скинути</string>
+    <string name="done">Готово</string>
+    <string name="finish">Завершити</string>
+    <string name="percent_format">%1$d%%</string>
+
+    <!-- Quick Test -->
+    <string name="quick_test_screen_title">Швидкий тест</string>
+    <string name="quick_test_screen_subtitle">Швидко знайдіть мертві зони</string>
+    <string name="quick_test_success">Чудово! Увесь екран перевірено.</string>
+    <string name="quick_test_instruction">Торкніться всіх зон на екрані.</string>
+    <string name="quick_test_hint">Кожна торкнута ділянка підсвітиться. Спробуйте охопити всі блоки.</string>
+    <string name="quick_test_start_hint">Торкніться тут</string>
+    <string name="quick_test_start_subhint">Охопіть усю площу екрана</string>
+    <string name="quick_test_cells_covered">%1$d / %2$d клітинок покрито</string>
+
+    <!-- Multi-Touch -->
+    <string name="multi_touch_screen_title">Мультитач тест</string>
+    <string name="multi_touch_screen_subtitle">Перевірка кількох пальців одночасно</string>
+    <string name="multi_touch_success">Чудово! Мультитач працює.</string>
+    <string name="multi_touch_instruction">Покладіть кілька пальців на екран.</string>
+    <string name="multi_touch_hint">Спробуйте торкатися екрана кількома пальцями одночасно.</string>
+    <string name="multi_touch_start_hint">Торкніться тут</string>
+    <string name="multi_touch_start_subhint">Використовуйте кілька пальців одночасно</string>
+    <string name="multi_touch_current_highest">Зараз: %1$d • Найбільше: %2$d</string>
+    <string name="multi_touch_target">Ціль: %1$d пальців</string>
+    <string name="multi_touch_highest_progress">Найбільше: %1$d / %2$d</string>
+    <string name="multi_touch_finger_singular">палець</string>
+    <string name="multi_touch_finger_plural">пальців</string>
+
+    <!-- Draw Test -->
+    <string name="draw_screen_title">Тест малювання</string>
+    <string name="draw_screen_subtitle">Перевірка точності малювання дотиком</string>
+    <string name="draw_success">Чудово! Малювання дотиком виявлено.</string>
+    <string name="draw_instruction">Малюйте на екрані, щоб перевірити відстеження дотику.</string>
+    <string name="draw_hint">Спробуйте повільні лінії, швидкі лінії, криві та кути.</string>
+    <string name="draw_start_hint">Почніть малювати</string>
+    <string name="draw_start_subhint">Лінії мають плавно слідувати за вашим пальцем</string>
+    <string name="draw_strokes_points">Лінії: %1$d • Точки: %2$d</string>
+    <string name="draw_strokes_only">Лінії: %1$d</string>
+
+    <!-- Edge Test -->
+    <string name="edge_screen_title">Тест країв</string>
+    <string name="edge_screen_subtitle">Перевірка реакції країв</string>
+    <string name="edge_success">Чудово! Краї екрана реагують.</string>
+    <string name="edge_instruction">Проведіть пальцем уздовж усіх країв екрана.</string>
+    <string name="edge_hint">Рухайтеся вздовж верхнього, правого, нижнього та лівого краю.</string>
+    <string name="edge_start_hint">Обведіть краї</string>
+    <string name="edge_start_subhint">Охопіть увесь край екрана</string>
+    <string name="edge_zones_covered">%1$d / %2$d крайових зон покрито</string>
+
+    <!-- Shared dynamic labels -->
+    <string name="active_fingers">Активні пальці: %1$d</string>
+</resources>

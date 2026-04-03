@@ -1,0 +1,88 @@
+<resources>
+    <string name="app_name">אבחון מסך ומגע</string>
+
+    <!-- Home -->
+    <string name="home_title">TouchLab</string>
+    <string name="home_subtitle">אבחון מסך ומגע</string>
+    <string name="hero_title">בדוק את המסך שלך תוך שניות</string>
+    <string name="hero_subtitle">בדוק אזורים מתים, מולטי-טאץ\' ודיוק המגע.</string>
+
+    <string name="quick_test">בדיקה מהירה</string>
+    <string name="quick_test_subtitle">הפעל בדיקה מלאה של המסך</string>
+
+    <string name="multi_touch_test">בדיקת מולטי-טאץ\'</string>
+    <string name="multi_touch_test_subtitle">בדוק כמה נקודות מגע</string>
+
+    <string name="draw_test">בדיקת ציור</string>
+    <string name="draw_test_subtitle">בדוק את דיוק הציור במגע</string>
+
+    <string name="edge_test">בדיקת קצוות</string>
+    <string name="edge_test_subtitle">בדוק את קצוות המסך</string>
+
+    <string name="device_overview">סקירת המכשיר</string>
+    <string name="max_touches_label">מקסימום נגיעות:</string>
+    <string name="max_touches_value">10 נקודות</string>
+    <string name="last_test_label">בדיקה אחרונה:</string>
+    <string name="last_test_value">עדיין לא הופעלה</string>
+    <string name="screen_size_label">גודל מסך:</string>
+    <string name="screen_size_value">6.5 אינץ\'</string>
+    <string name="mode_label">מצב:</string>
+    <string name="mode_value">לא מקוון</string>
+
+    <!-- Common -->
+    <string name="status_passed">סטטוס: עבר</string>
+    <string name="status_in_progress">סטטוס: בתהליך</string>
+    <string name="status_waiting">סטטוס: ממתין</string>
+    <string name="reset">איפוס</string>
+    <string name="done">סיום</string>
+    <string name="finish">סיים</string>
+    <string name="percent_format">%1$d%%</string>
+
+    <!-- Quick Test -->
+    <string name="quick_test_screen_title">בדיקה מהירה</string>
+    <string name="quick_test_screen_subtitle">מצא אזורים מתים במהירות</string>
+    <string name="quick_test_success">מצוין! כל המסך נבדק.</string>
+    <string name="quick_test_instruction">גע בכל האזורים על המסך.</string>
+    <string name="quick_test_hint">כל אזור שנוגעים בו יואר. נסה לכסות את כל הבלוקים.</string>
+    <string name="quick_test_start_hint">גע כאן</string>
+    <string name="quick_test_start_subhint">כסה את כל שטח המסך</string>
+    <string name="quick_test_cells_covered">%1$d / %2$d תאים כוסו</string>
+
+    <!-- Multi-Touch -->
+    <string name="multi_touch_screen_title">בדיקת מולטי-טאץ\'</string>
+    <string name="multi_touch_screen_subtitle">בדוק כמה אצבעות בו-זמנית</string>
+    <string name="multi_touch_success">מצוין! מולטי-טאץ\' עובד.</string>
+    <string name="multi_touch_instruction">הנח כמה אצבעות על המסך.</string>
+    <string name="multi_touch_hint">נסה לגעת במסך עם כמה אצבעות בו-זמנית.</string>
+    <string name="multi_touch_start_hint">גע כאן</string>
+    <string name="multi_touch_start_subhint">השתמש בכמה אצבעות בו-זמנית</string>
+    <string name="multi_touch_current_highest">נוכחי: %1$d • מקסימום: %2$d</string>
+    <string name="multi_touch_target">יעד: %1$d אצבעות</string>
+    <string name="multi_touch_highest_progress">מקסימום: %1$d / %2$d</string>
+    <string name="multi_touch_finger_singular">אצבע</string>
+    <string name="multi_touch_finger_plural">אצבעות</string>
+
+    <!-- Draw Test -->
+    <string name="draw_screen_title">בדיקת ציור</string>
+    <string name="draw_screen_subtitle">בדוק את דיוק הציור במגע</string>
+    <string name="draw_success">מעולה! ציור במגע זוהה.</string>
+    <string name="draw_instruction">צייר על המסך כדי לבדוק את מעקב המגע.</string>
+    <string name="draw_hint">נסה קווים איטיים, קווים מהירים, עקומות ופינות.</string>
+    <string name="draw_start_hint">התחל לצייר</string>
+    <string name="draw_start_subhint">הקווים צריכים לעקוב אחרי האצבע שלך בצורה חלקה</string>
+    <string name="draw_strokes_points">קווים: %1$d • נקודות: %2$d</string>
+    <string name="draw_strokes_only">קווים: %1$d</string>
+
+    <!-- Edge Test -->
+    <string name="edge_screen_title">בדיקת קצוות</string>
+    <string name="edge_screen_subtitle">בדוק את תגובת הקצוות</string>
+    <string name="edge_success">מצוין! קצוות המסך מגיבים.</string>
+    <string name="edge_instruction">העבר את האצבע לאורך כל קצוות המסך.</string>
+    <string name="edge_hint">נוע לאורך הקצה העליון, הימני, התחתון והשמאלי.</string>
+    <string name="edge_start_hint">עקוב אחרי הקצוות</string>
+    <string name="edge_start_subhint">כסה את כל מסגרת המסך</string>
+    <string name="edge_zones_covered">%1$d / %2$d אזורי קצה כוסו</string>
+
+    <!-- Shared dynamic labels -->
+    <string name="active_fingers">אצבעות פעילות: %1$d</string>
+</resources>

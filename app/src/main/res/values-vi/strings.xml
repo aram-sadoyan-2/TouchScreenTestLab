@@ -1,0 +1,88 @@
+<resources>
+    <string name="app_name">Chẩn đoán màn hình và cảm ứng</string>
+
+    <!-- Home -->
+    <string name="home_title">TouchLab</string>
+    <string name="home_subtitle">Chẩn đoán màn hình và cảm ứng</string>
+    <string name="hero_title">Kiểm tra màn hình của bạn trong vài giây</string>
+    <string name="hero_subtitle">Kiểm tra vùng chết, đa chạm và độ chính xác cảm ứng.</string>
+
+    <string name="quick_test">Kiểm tra nhanh</string>
+    <string name="quick_test_subtitle">Bắt đầu kiểm tra toàn bộ màn hình</string>
+
+    <string name="multi_touch_test">Kiểm tra đa chạm</string>
+    <string name="multi_touch_test_subtitle">Kiểm tra nhiều điểm chạm</string>
+
+    <string name="draw_test">Kiểm tra vẽ</string>
+    <string name="draw_test_subtitle">Kiểm tra độ chính xác khi vẽ bằng cảm ứng</string>
+
+    <string name="edge_test">Kiểm tra cạnh</string>
+    <string name="edge_test_subtitle">Kiểm tra các cạnh màn hình</string>
+
+    <string name="device_overview">Tổng quan thiết bị</string>
+    <string name="max_touches_label">Số chạm tối đa:</string>
+    <string name="max_touches_value">10 điểm</string>
+    <string name="last_test_label">Lần kiểm tra trước:</string>
+    <string name="last_test_value">Chưa chạy</string>
+    <string name="screen_size_label">Kích thước màn hình:</string>
+    <string name="screen_size_value">6,5 inch</string>
+    <string name="mode_label">Chế độ:</string>
+    <string name="mode_value">Ngoại tuyến</string>
+
+    <!-- Common -->
+    <string name="status_passed">Trạng thái: Đạt</string>
+    <string name="status_in_progress">Trạng thái: Đang thực hiện</string>
+    <string name="status_waiting">Trạng thái: Đang chờ</string>
+    <string name="reset">Đặt lại</string>
+    <string name="done">Xong</string>
+    <string name="finish">Kết thúc</string>
+    <string name="percent_format">%1$d%%</string>
+
+    <!-- Quick Test -->
+    <string name="quick_test_screen_title">Kiểm tra nhanh</string>
+    <string name="quick_test_screen_subtitle">Tìm nhanh vùng chết</string>
+    <string name="quick_test_success">Tuyệt! Toàn bộ màn hình đã được kiểm tra.</string>
+    <string name="quick_test_instruction">Chạm vào tất cả các vùng trên màn hình.</string>
+    <string name="quick_test_hint">Mỗi vùng được chạm sẽ sáng lên. Hãy cố gắng phủ hết tất cả các ô.</string>
+    <string name="quick_test_start_hint">Chạm vào đây</string>
+    <string name="quick_test_start_subhint">Phủ toàn bộ khu vực màn hình</string>
+    <string name="quick_test_cells_covered">Đã phủ %1$d / %2$d ô</string>
+
+    <!-- Multi-Touch -->
+    <string name="multi_touch_screen_title">Kiểm tra đa chạm</string>
+    <string name="multi_touch_screen_subtitle">Kiểm tra nhiều ngón tay cùng lúc</string>
+    <string name="multi_touch_success">Tuyệt! Đa chạm hoạt động.</string>
+    <string name="multi_touch_instruction">Đặt nhiều ngón tay lên màn hình.</string>
+    <string name="multi_touch_hint">Hãy thử chạm màn hình bằng nhiều ngón tay cùng lúc.</string>
+    <string name="multi_touch_start_hint">Chạm vào đây</string>
+    <string name="multi_touch_start_subhint">Dùng nhiều ngón tay cùng lúc</string>
+    <string name="multi_touch_current_highest">Hiện tại: %1$d • Cao nhất: %2$d</string>
+    <string name="multi_touch_target">Mục tiêu: %1$d ngón tay</string>
+    <string name="multi_touch_highest_progress">Cao nhất: %1$d / %2$d</string>
+    <string name="multi_touch_finger_singular">ngón tay</string>
+    <string name="multi_touch_finger_plural">ngón tay</string>
+
+    <!-- Draw Test -->
+    <string name="draw_screen_title">Kiểm tra vẽ</string>
+    <string name="draw_screen_subtitle">Kiểm tra độ chính xác khi vẽ bằng cảm ứng</string>
+    <string name="draw_success">Tốt! Đã phát hiện thao tác vẽ cảm ứng.</string>
+    <string name="draw_instruction">Vẽ trên màn hình để kiểm tra theo dõi cảm ứng.</string>
+    <string name="draw_hint">Hãy thử các đường chậm, đường nhanh, đường cong và góc.</string>
+    <string name="draw_start_hint">Bắt đầu vẽ</string>
+    <string name="draw_start_subhint">Các đường phải theo ngón tay của bạn một cách mượt mà</string>
+    <string name="draw_strokes_points">Nét: %1$d • Điểm: %2$d</string>
+    <string name="draw_strokes_only">Nét: %1$d</string>
+
+    <!-- Edge Test -->
+    <string name="edge_screen_title">Kiểm tra cạnh</string>
+    <string name="edge_screen_subtitle">Kiểm tra phản hồi của các cạnh</string>
+    <string name="edge_success">Tuyệt! Các cạnh màn hình phản hồi tốt.</string>
+    <string name="edge_instruction">Di chuyển ngón tay dọc theo tất cả các cạnh của màn hình.</string>
+    <string name="edge_hint">Di chuyển dọc theo cạnh trên, phải, dưới và trái.</string>
+    <string name="edge_start_hint">Vẽ theo cạnh</string>
+    <string name="edge_start_subhint">Phủ toàn bộ viền màn hình</string>
+    <string name="edge_zones_covered">Đã phủ %1$d / %2$d vùng cạnh</string>
+
+    <!-- Shared dynamic labels -->
+    <string name="active_fingers">Ngón tay đang chạm: %1$d</string>
+</resources>

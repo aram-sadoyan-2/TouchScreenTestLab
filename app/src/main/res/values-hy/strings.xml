@@ -1,0 +1,88 @@
+<resources>
+    <string name="app_name">Էկրանի և հպման ախտորոշում</string>
+
+    <!-- Home -->
+    <string name="home_title">TouchLab</string>
+    <string name="home_subtitle">Էկրանի և հպման ախտորոշում</string>
+    <string name="hero_title">Ստուգեք ձեր էկրանը վայրկյանների ընթացքում</string>
+    <string name="hero_subtitle">Ստուգեք մեռած գոտիները, բազմահպումը և հպման ճշգրտությունը։</string>
+
+    <string name="quick_test">Արագ թեստ</string>
+    <string name="quick_test_subtitle">Գործարկել էկրանի ամբողջական ստուգում</string>
+
+    <string name="multi_touch_test">Բազմահպման թեստ</string>
+    <string name="multi_touch_test_subtitle">Ստուգել միաժամանակ մի քանի հպման կետ</string>
+
+    <string name="draw_test">Նկարման թեստ</string>
+    <string name="draw_test_subtitle">Ստուգել հպումով նկարման ճշգրտությունը</string>
+
+    <string name="edge_test">Եզրերի թեստ</string>
+    <string name="edge_test_subtitle">Ստուգել էկրանի եզրերը</string>
+
+    <string name="device_overview">Սարքի ամփոփ տեղեկություն</string>
+    <string name="max_touches_label">Առավելագույն հպումներ՝</string>
+    <string name="max_touches_value">10 կետ</string>
+    <string name="last_test_label">Վերջին թեստ՝</string>
+    <string name="last_test_value">Դեռ չի գործարկվել</string>
+    <string name="screen_size_label">Էկրանի չափ՝</string>
+    <string name="screen_size_value">6.5 դյույմ</string>
+    <string name="mode_label">Ռեժիմ՝</string>
+    <string name="mode_value">Անցանց</string>
+
+    <!-- Common -->
+    <string name="status_passed">Կարգավիճակ՝ Անցած</string>
+    <string name="status_in_progress">Կարգավիճակ՝ Ընթացքի մեջ</string>
+    <string name="status_waiting">Կարգավիճակ՝ Սպասում</string>
+    <string name="reset">Վերակայել</string>
+    <string name="done">Պատրաստ է</string>
+    <string name="finish">Ավարտել</string>
+    <string name="percent_format">%1$d%%</string>
+
+    <!-- Quick Test -->
+    <string name="quick_test_screen_title">Արագ թեստ</string>
+    <string name="quick_test_screen_subtitle">Մեռած գոտիների արագ հայտնաբերում</string>
+    <string name="quick_test_success">Գերազանց։ Ամբողջ էկրանը ստուգված է։</string>
+    <string name="quick_test_instruction">Հպվեք էկրանի բոլոր գոտիներին։</string>
+    <string name="quick_test_hint">Յուրաքանչյուր հպված հատվածը կլուսավորվի։ Փորձեք ծածկել բոլոր բլոկները։</string>
+    <string name="quick_test_start_hint">Հպվեք այստեղ</string>
+    <string name="quick_test_start_subhint">Ծածկեք էկրանի ամբողջ տարածքը</string>
+    <string name="quick_test_cells_covered">%1$d / %2$d բջիջ ծածկված է</string>
+
+    <!-- Multi-Touch -->
+    <string name="multi_touch_screen_title">Բազմահպման թեստ</string>
+    <string name="multi_touch_screen_subtitle">Միաժամանակ մի քանի մատի ստուգում</string>
+    <string name="multi_touch_success">Գերազանց։ Բազմահպումը աշխատում է։</string>
+    <string name="multi_touch_instruction">Մի քանի մատ դրեք էկրանին։</string>
+    <string name="multi_touch_hint">Փորձեք միաժամանակ հպվել էկրանին մի քանի մատով։</string>
+    <string name="multi_touch_start_hint">Հպվեք այստեղ</string>
+    <string name="multi_touch_start_subhint">Օգտագործեք մի քանի մատ միաժամանակ</string>
+    <string name="multi_touch_current_highest">Ընթացիկ՝ %1$d • Առավելագույն՝ %2$d</string>
+    <string name="multi_touch_target">Նպատակ՝ %1$d մատ</string>
+    <string name="multi_touch_highest_progress">Առավելագույն՝ %1$d / %2$d</string>
+    <string name="multi_touch_finger_singular">մատ</string>
+    <string name="multi_touch_finger_plural">մատ</string>
+
+    <!-- Draw Test -->
+    <string name="draw_screen_title">Նկարման թեստ</string>
+    <string name="draw_screen_subtitle">Հպումով նկարման ճշգրտության ստուգում</string>
+    <string name="draw_success">Հիանալի։ Հպումով նկարչությունը հայտնաբերվել է։</string>
+    <string name="draw_instruction">Նկարեք էկրանի վրա՝ հպման հետևումը ստուգելու համար։</string>
+    <string name="draw_hint">Փորձեք դանդաղ գծեր, արագ գծեր, կորեր և անկյուններ։</string>
+    <string name="draw_start_hint">Սկսեք նկարել</string>
+    <string name="draw_start_subhint">Գծերը պետք է սահուն հետևեն ձեր մատին</string>
+    <string name="draw_strokes_points">Գծեր՝ %1$d • Կետեր՝ %2$d</string>
+    <string name="draw_strokes_only">Գծեր՝ %1$d</string>
+
+    <!-- Edge Test -->
+    <string name="edge_screen_title">Եզրերի թեստ</string>
+    <string name="edge_screen_subtitle">Եզրերի արձագանքի ստուգում</string>
+    <string name="edge_success">Գերազանց։ Էկրանի եզրերը արձագանքում են։</string>
+    <string name="edge_instruction">Անցկացրեք մատը էկրանի բոլոր եզրերով։</string>
+    <string name="edge_hint">Անցկացրեք վերին, աջ, ստորին և ձախ սահմաններով։</string>
+    <string name="edge_start_hint">Ստուգեք եզրերը</string>
+    <string name="edge_start_subhint">Ծածկեք էկրանի ամբողջ սահմանը</string>
+    <string name="edge_zones_covered">%1$d / %2$d եզրային գոտի ծածկված է</string>
+
+    <!-- Shared dynamic labels -->
+    <string name="active_fingers">Ակտիվ մատներ՝ %1$d</string>
+</resources>

@@ -1,3 +1,88 @@
 <resources>
-    <string name="app_name">Touch Screen Test Lab</string>
+<string name="app_name">Screen &amp; Touch Diagnostic</string>
+
+<!-- Home -->
+<string name="home_title">TouchLab</string>
+<string name="home_subtitle">Screen &amp; Touch Diagnostic</string>
+<string name="hero_title">Test your screen in seconds</string>
+<string name="hero_subtitle">Check dead zones, multi-touch, and touch accuracy.</string>
+
+<string name="quick_test">Quick Test</string>
+<string name="quick_test_subtitle">Run a full screen check</string>
+
+<string name="multi_touch_test">Multi-Touch Test</string>
+<string name="multi_touch_test_subtitle">Check multiple touch points</string>
+
+<string name="draw_test">Draw Test</string>
+<string name="draw_test_subtitle">Test touch drawing accuracy</string>
+
+<string name="edge_test">Edge Test</string>
+<string name="edge_test_subtitle">Examine screen edges</string>
+
+<string name="device_overview">Device Overview</string>
+<string name="max_touches_label">Max Touches:</string>
+<string name="max_touches_value">10 Points</string>
+<string name="last_test_label">Last Test:</string>
+<string name="last_test_value">Not Run Yet</string>
+<string name="screen_size_label">Screen Size:</string>
+<string name="screen_size_value">6.5 inches</string>
+<string name="mode_label">Mode:</string>
+<string name="mode_value">Offline</string>
+
+<!-- Common -->
+<string name="status_passed">Status: Passed</string>
+<string name="status_in_progress">Status: In progress</string>
+<string name="status_waiting">Status: Waiting</string>
+<string name="reset">Reset</string>
+<string name="done">Done</string>
+<string name="finish">Finish</string>
+<string name="percent_format">%1$d%%</string>
+
+<!-- Quick Test -->
+<string name="quick_test_screen_title">Quick Test</string>
+<string name="quick_test_screen_subtitle">Find dead zones fast</string>
+<string name="quick_test_success">Great! Full screen checked.</string>
+<string name="quick_test_instruction">Touch all zones on the screen.</string>
+<string name="quick_test_hint">Every touched area will light up. Try to cover all blocks.</string>
+<string name="quick_test_start_hint">Touch here</string>
+<string name="quick_test_start_subhint">Cover the full screen area</string>
+<string name="quick_test_cells_covered">%1$d / %2$d cells covered</string>
+
+<!-- Multi-Touch -->
+<string name="multi_touch_screen_title">Multi-Touch Test</string>
+<string name="multi_touch_screen_subtitle">Check several fingers at once</string>
+<string name="multi_touch_success">Great! Multi-touch works.</string>
+<string name="multi_touch_instruction">Place several fingers on the screen.</string>
+<string name="multi_touch_hint">Try touching with multiple fingers at the same time.</string>
+<string name="multi_touch_start_hint">Touch here</string>
+<string name="multi_touch_start_subhint">Use several fingers together</string>
+<string name="multi_touch_current_highest">Current: %1$d • Highest: %2$d</string>
+<string name="multi_touch_target">Target: %1$d fingers</string>
+<string name="multi_touch_highest_progress">Highest: %1$d / %2$d</string>
+<string name="multi_touch_finger_singular">finger</string>
+<string name="multi_touch_finger_plural">fingers</string>
+
+<!-- Draw Test -->
+<string name="draw_screen_title">Draw Test</string>
+<string name="draw_screen_subtitle">Check touch drawing accuracy</string>
+<string name="draw_success">Nice! Touch drawing is detected.</string>
+<string name="draw_instruction">Draw on the screen to test touch tracking.</string>
+<string name="draw_hint">Try slow lines, quick lines, curves, and corners.</string>
+<string name="draw_start_hint">Start drawing</string>
+<string name="draw_start_subhint">Lines should follow your finger smoothly</string>
+<string name="draw_strokes_points">Strokes: %1$d • Points: %2$d</string>
+<string name="draw_strokes_only">Strokes: %1$d</string>
+
+<!-- Edge Test -->
+<string name="edge_screen_title">Edge Test</string>
+<string name="edge_screen_subtitle">Check border responsiveness</string>
+<string name="edge_success">Great! Screen edges responded.</string>
+<string name="edge_instruction">Trace your finger around all screen edges.</string>
+<string name="edge_hint">Move along top, right, bottom, and left borders.</string>
+<string name="edge_start_hint">Trace edges</string>
+<string name="edge_start_subhint">Cover the full border of the screen</string>
+<string name="edge_zones_covered">%1$d / %2$d edge zones covered</string>
+
+<!-- Shared dynamic labels -->
+<string name="active_fingers">Active fingers: %1$d</string>
 </resources>
